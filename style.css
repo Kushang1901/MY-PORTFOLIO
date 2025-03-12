@@ -12,15 +12,16 @@
   --primary: #4361ee;
   --secondary: #3a0ca3;
   --accent: #4cc9f0;
-  --dark: #f8fafc;  
-  --light: #111827;   --gray: #94a3b8;
+  --dark: #111827;  
+  --light: #f8fafc;   
+  --gray: #94a3b8;
   --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
 }
 
 body {
   font-family: 'Raleway', sans-serif;
-  background-color: var(--light);
-  color: var(--dark);
+  background-color: var(--dark);  /* Keeping dark background */
+  color: var(--light);  /* Light text for dark background */
   line-height: 1.6;
 }
 
@@ -73,7 +74,7 @@ header .container {
 header h1 {
   font-size: 56px;
   margin-bottom: 16px;
-  color: var(--light);
+  color: white;  /* White text on gradient background */
   text-transform: none;
   letter-spacing: -1px;
   line-height: 1.1;
@@ -89,12 +90,12 @@ header p {
 
 /* Navigation */
 nav {
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(17, 24, 39, 0.95);  /* Dark nav background */
   padding: 15px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
 }
 
@@ -110,7 +111,7 @@ nav ul li {
 }
 
 nav ul li a {
-  color: var(--dark);
+  color: var(--light);  /* Light text on dark nav */
   text-decoration: none;
   font-size: 15px;
   font-weight: 600;
@@ -128,8 +129,8 @@ nav ul li a i {
 }
 
 nav ul li a:hover {
-  background-color: rgba(67, 97, 238, 0.1);
-  color: var(--primary);
+  background-color: rgba(67, 97, 238, 0.2);  /* Slightly more visible hover state */
+  color: var(--accent);
 }
 
 /* Active navigation item */
@@ -146,14 +147,15 @@ nav ul li a.active i {
 section {
   margin: 80px auto;
   padding: 50px 40px;
-  background: white;
+  background: var(--dark);  /* Dark section backgrounds */
   border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid #1e293b;  /* Subtle border for definition */
 }
 
 section h2 {
   font-size: 36px;
-  color: var(--dark);
+  color: var(--light);  /* Light headings */
   margin-bottom: 30px;
   position: relative;
   display: inline-block;
@@ -186,7 +188,7 @@ section h2::after {
   width: 100%;
   height: auto;
   border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
@@ -208,7 +210,7 @@ section h2::after {
   font-size: 17px;
   line-height: 1.7;
   margin-bottom: 20px;
-  color: #334155;
+  color: #e2e8f0;  /* Light paragraph text */
 }
 
 /* Skills Section */
@@ -222,14 +224,14 @@ section h2::after {
 }
 
 #skills ul li {
-  background-color: white;
-  color: var(--dark);
+  background-color: #1e293b;  /* Slightly lighter dark for contrast */
+  color: var(--light);
   padding: 12px 22px;
   border-radius: 8px;
   font-size: 16px;
   font-weight: 500;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 1px solid #334155;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
@@ -259,13 +261,13 @@ section h2::after {
 }
 
 .project {
-  background: #ffffff;
+  background: #1e293b;  /* Slightly lighter dark for projects */
   padding: 30px;
   margin: 40px 0;
   border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #334155;
   position: relative;
   overflow: hidden;
 }
@@ -283,12 +285,12 @@ section h2::after {
 
 .project:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
 }
 
 .project h3 {
   font-size: 24px;
-  color: var(--dark);
+  color: var(--light);
   margin-bottom: 15px;
 }
 
@@ -296,7 +298,7 @@ section h2::after {
   margin-bottom: 25px;
   font-size: 16px;
   line-height: 1.7;
-  color: #334155;
+  color: #e2e8f0;
 }
 
 .project-links {
@@ -401,6 +403,7 @@ section h2::after {
   display: flex;
   align-items: center;
   gap: 10px;
+  color: var(--light);
 }
 
 #contact p i {
@@ -423,7 +426,7 @@ section h2::after {
 }
 
 #contact p a {
-  color: var(--dark);
+  color: var(--accent);  /* More visible link color */
   text-decoration: none;
   transition: all 0.3s ease;
   font-weight: 500;
@@ -431,12 +434,13 @@ section h2::after {
 
 #contact p a:hover {
   color: var(--primary);
+  text-decoration: underline;
 }
 
 /* Footer */
 footer {
-  background-color: var(--dark);
-  color: white;
+  background-color: #0f172a;  /* Darker footer */
+  color: var(--light);
   padding: 25px;
   text-align: center;
 }
