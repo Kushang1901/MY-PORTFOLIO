@@ -17,18 +17,17 @@
     </header>
 
     <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
-                <li><a href="#skills"><i class="fas fa-code"></i> Skills</a></li>
-		<li><a href="#achievements"><i class="fas fa-trophy"></i> Achievements</a></li>
-                <li><a href="#projects"><i class="fas fa-laptop-code"></i> Projects</a></li>
-                <li><a href="#resume"><i class="fas fa-file-alt"></i> Resume</a></li>
-                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-		
-            </ul>
-        </div>
-    </nav>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <ul id="nav-menu">
+    <li><a href="#about"><i class="fa fa-user"></i> About</a></li>
+    <li><a href="#skills"><i class="fa fa-code"></i> Skills</a></li>
+    <li><a href="#achievements"><i class="fa fa-trophy"></i> Achievements</a></li>
+    <li><a href="#projects"><i class="fa fa-image"></i> Projects</a></li>
+    <li><a href="#resume"><i class="fa fa-file"></i> Resume</a></li>
+    <li><a href="#contact"><i class="fa fa-envelope"></i> Contact</a></li>
+  </ul>
+</nav>
+
 
     <section id="about">
         <div class="container">
@@ -189,6 +188,13 @@
     </footer>
 
     <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+<script>
+  function toggleMenu() {
+    document.getElementById("nav-menu").classList.toggle("active");
+  }
+</script>
+
 
 </body>
 </html>
