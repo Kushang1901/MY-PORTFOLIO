@@ -193,6 +193,30 @@
   function toggleMenu() {
     document.getElementById("nav-menu").classList.toggle("active");
   }
+
+// Smooth hide/show navbar on scroll
+let prevScrollPos = window.pageYOffset;
+const nav = document.querySelector("nav");
+
+window.addEventListener("scroll", function () {
+  const currentScrollPos = window.pageYOffset;
+  const nav = document.querySelector("nav");
+
+  if (currentScrollPos > 10) {
+    nav.classList.add("scrolled");
+  } else {
+    nav.classList.remove("scrolled");
+  }
+
+  if (prevScrollPos > currentScrollPos) {
+    nav.style.top = "0";
+  } else {
+    nav.style.top = "-100px";
+  }
+
+  prevScrollPos = currentScrollPos;
+});
+
 </script>
 
 

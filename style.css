@@ -50,6 +50,8 @@ header {
   position: relative;
   overflow: hidden;
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+			transition: top 0.4s ease-in-out; 
+
 }
 
 header::before {
@@ -97,7 +99,14 @@ nav {
   z-index: 1000;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
+transition: top 0.3s ease-in-out;
 }
+
+nav.scrolled {
+  background-color: rgba(17, 24, 39, 0.85); /* Slightly darker when scrolled */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
 
 nav ul {
   list-style: none;
@@ -133,10 +142,16 @@ nav ul li a:hover {
   color: var(--accent);
 }
 
+
+nav:hover {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+}
+
 /* Active navigation item */
 nav ul li a.active {
   background-color: var(--primary);
-  color: white;
+   color: #00f7ff;
+  border-bottom: 2px solid #00f7ff;
 }
 
 nav ul li a.active i {
@@ -689,14 +704,14 @@ section {
     display: block;
   }
 
-  #nav-menu {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
+ #nav-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
 
-  #nav-menu.active {
-    display: flex;
-  }
+#nav-menu.active {
+  max-height: 300px; /* enough to show all items */
+}
+
 }
