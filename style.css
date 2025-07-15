@@ -282,6 +282,19 @@ section h2::after {
     margin-top: 40px;
 }
 
+/* Make entire card clickable */
+.achievement-card {
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    display: block;
+}
+
+.achievement-card:hover {
+    transform: translateY(-8px);
+}
+
+/* Inner box */
 .achievement {
     background: #1e293b;
     padding: 25px;
@@ -289,7 +302,6 @@ section h2::after {
     display: flex;
     align-items: flex-start;
     gap: 20px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
     border: 1px solid #334155;
     position: relative;
 }
@@ -301,12 +313,11 @@ section h2::after {
     left: 0;
     width: 4px;
     height: 100%;
-    background: var(--gradient);
+    background: linear-gradient(to bottom, #4f46e5, #3b82f6);
     border-radius: 4px 0 0 4px;
 }
 
 .achievement:hover {
-    transform: translateY(-8px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
 }
 
@@ -322,7 +333,7 @@ section h2::after {
 
 .achievement-icon i {
     font-size: 28px;
-    color: var(--primary);
+    color: #4f46e5; /* Updated gradient tone */
 }
 
 .achievement-content {
@@ -332,7 +343,7 @@ section h2::after {
 .achievement-content h3 {
     font-size: 22px;
     margin-bottom: 10px;
-    color: var(--light);
+    color: #f8fafc;
 }
 
 .achievement-content p {
