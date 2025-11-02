@@ -1,17 +1,12 @@
 {
   "version": 2,
-  "includeFiles": [
-    "public/sitemap.xml",
-    "public/robots.txt"
-  ],
-  "routes": [
+  "public": true,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
     {
-      "src": "/sitemap.xml",
-      "dest": "/public/sitemap.xml"
-    },
-    {
-      "src": "/robots.txt",
-      "dest": "/public/robots.txt"
+      "source": "/(.*)",
+      "destination": "/public/$1"
     }
   ]
 }
