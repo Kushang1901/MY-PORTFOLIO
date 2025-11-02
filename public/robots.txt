@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Disallow private or unnecessary files
+Disallow: /style.css
+Disallow: /README.txt
+Disallow: /LICENSE
+Disallow: /node_modules/
+Disallow: /assets/
+Disallow: /scripts/
+
+# Sitemap to help Google find all pages
+Sitemap: https://kushangacharya.vercel.app/sitemap.xml
+
+# End of robots.txt
