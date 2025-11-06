@@ -20,7 +20,7 @@
     <meta property="og:url" content="https://kushangacharya.vercel.app/">
     <meta property="og:type" content="website">
 
-    
+     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Kushang Acharya | Web Developer Portfolio">
     <meta name="twitter:description" content="MSc IT graduate passionate about Web Development, Java, and Python projects.">
@@ -31,7 +31,7 @@
     <header>
         <div class="container">
             <h1>Kushang Acharya</h1>
-            <p>IT Professional | Web Developer | Java Developer</p>
+            <p id="typing-text"></p>
         </div>
     </header>
 
@@ -245,6 +245,20 @@
 
             prevScrollPos = currentScrollPos;
         });
+
+        const text = "IT Professional | Web Developer";
+        const typingElement = document.getElementById("typing-text");
+        let index = 0;
+
+        function typeEffect() {
+            if (index < text.length) {
+                typingElement.textContent += text.charAt(index);
+                index++;
+                setTimeout(typeEffect, 50); // typing speed (100ms per letter)
+            }
+        }
+
+        window.onload = typeEffect;
     </script>
     <script type="application/ld+json">
                     {
