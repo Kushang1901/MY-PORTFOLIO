@@ -1,0 +1,15 @@
+{
+  "name": "Kushang Acharya Portfolio",
+  "short_name": "Portfolio",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "https://res.cloudinary.com/dn45xyazy/image/upload/v1753021201/Kushang_ACharya_1_dfos3m.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
