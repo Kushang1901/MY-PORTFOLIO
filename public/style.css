@@ -555,6 +555,44 @@ section {
         box-shadow: 0 10px 25px rgba(0, 255, 136, 0.3);
     }
 
+/* Resume Section Button Row */
+.resume-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+/* View Button (outline style) */
+.view-btn {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+    .view-btn:hover {
+        background: var(--primary);
+        color: var(--darker-bg);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 255, 136, 0.3);
+    }
+
+/* Download Button (already styled, keeps same look) */
+.download-btn {
+    background: var(--primary);
+    color: var(--darker-bg);
+    border: 2px solid var(--primary);
+}
+
+    .download-btn:hover {
+        background: transparent;
+        color: var(--primary);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 255, 136, 0.3);
+    }
+
+
 /* Contact Section */
 #contact {
     text-align: left;
