@@ -712,6 +712,68 @@ section {
     animation: fadeInUp 0.8s ease-out forwards;
 }
 
+/* Floating Contact Widget */
+.contact-widget {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 9999;
+}
+
+.contact-main-btn {
+    width: 60px;
+    height: 60px;
+    background: #3107db;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    color: white;
+    font-size: 26px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+    .contact-main-btn:hover {
+        transform: scale(1.08);
+    }
+
+.contact-options {
+    display: none;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.contact-option {
+    display: block;
+    width: 55px;
+    height: 55px;
+    margin-bottom: 10px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.25);
+    color: #333;
+    font-size: 26px;
+    line-height: 55px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+    .contact-option:hover {
+        transform: scale(1.1);
+    }
+
+.email {
+    color: #d44638;
+}
+
+.whatsapp {
+    color: #25D366;
+}
+
+.call {
+    color: #007bff;
+}
+
 /* Responsive Design Improvements */
 @media (max-width: 768px) {
     header {
@@ -781,6 +843,25 @@ section {
 
     .achievement {
         padding: 20px;
+    }
+
+    .contact-widget {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .contact-main-btn {
+        width: 52px;
+        height: 52px;
+        font-size: 22px;
+    }
+
+    .contact-option {
+        width: 48px;
+        height: 48px;
+        font-size: 22px;
+        margin-bottom: 8px;
+        line-height: 48px;
     }
 }
 
