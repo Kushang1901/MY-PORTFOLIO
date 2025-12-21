@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AwareNest - UED Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dn45xyazy/image/upload/v1753021201/Kushang_ACharya_1_dfos3m.png">
+
+    <style>
+        /* CSS Reset & General Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --primary: #00ff88;
+            --secondary: #00cc6f;
+            --accent: #00ffcc;
+            --dark-bg: #0a0e27;
+            --darker-bg: #060917;
+            --card-bg: #0f1429;
+            --border-color: #1a1f3a;
+            --text-primary: #e4e4e7;
+            --text-secondary: #a1a1aa;
+            --code-green: #00ff88;
+            --code-blue: #3b82f6;
+            --gradient: linear-gradient(135deg, #00ff88, #00cc6f);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            background-image: radial-gradient(at 0% 0%, rgba(0, 255, 136, 0.05) 0px, transparent 50%), radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.05) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(0, 255, 204, 0.05) 0px, transparent 50%);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--darker-bg);
+            padding: 120px 20px 80px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+            header::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent 0%, rgba(0, 255, 136, 0.03) 50%, transparent 100%), repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 255, 136, 0.03) 2px, rgba(0, 255, 136, 0.03) 4px);
+                opacity: 0.3;
+                z-index: 0;
+            }
+
+            header .container {
+                position: relative;
+                z-index: 1;
+                text-align: center;
+            }
+
+            header h1 {
+                font-size: 56px;
+                margin-bottom: 16px;
+                color: var(--text-primary);
+                letter-spacing: -1px;
+                line-height: 1.1;
+                text-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+            }
+
+                header h1::before {
+                    content: '< ';
+                    color: var(--primary);
+                }
+
+                header h1::after {
+                    content: ' />';
+                    color: var(--primary);
+                }
+
+            header p {
+                font-size: 20px;
+                color: var(--text-secondary);
+                font-weight: 300;
+                max-width: 600px;
+                margin: 0 auto;
+                font-family: 'JetBrains Mono', monospace;
+            }
+
+                header p::before {
+                    content: '// ';
+                    color: var(--primary);
+                }
+
+        /* Navigation */
+        nav {
+            background-color: rgba(15, 20, 41, 0.95);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+            nav ul {
+                list-style: none;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+                nav ul li {
+                    margin: 0 5px;
+                }
+
+                    nav ul li a {
+                        color: var(--text-primary);
+                        text-decoration: none;
+                        font-size: 15px;
+                        font-weight: 500;
+                        padding: 10px 16px;
+                        border-radius: 6px;
+                        transition: all 0.3s ease;
+                        display: flex;
+                        align-items: center;
+                        gap: 6px;
+                        font-family: 'JetBrains Mono', monospace;
+                        border: 1px solid transparent;
+                    }
+
+                        nav ul li a i {
+                            font-size: 16px;
+                            color: var(--primary);
+                        }
+
+                        nav ul li a:hover,
+                        nav ul li a.active {
+                            background-color: rgba(0, 255, 136, 0.1);
+                            color: var(--primary);
+                            border-color: var(--primary);
+                        }
+
+        /* Section Styles */
+        section {
+            margin: 80px auto;
+            padding: 50px 40px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+            section::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 3px;
+                height: 100%;
+                background: var(--gradient);
+                border-radius: 12px 0 0 12px;
+            }
+
+            section h2 {
+                font-size: 36px;
+                color: var(--text-primary);
+                margin-bottom: 30px;
+                position: relative;
+                display: inline-block;
+                font-family: 'JetBrains Mono', monospace;
+            }
+
+                section h2::before {
+                    content: 'function ';
+                    color: var(--code-blue);
+                    font-size: 24px;
+                }
+
+                section h2::after {
+                    content: '()';
+                    color: var(--primary);
+                }
+
+        /* Figma Embed Styles */
+        .figma-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            background: var(--darker-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-color);
+            margin-top: 30px;
+        }
+
+            .figma-wrapper iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: none;
+            }
+
+        /* Info Section */
+        .info-section {
+            margin-top: 40px;
+            padding: 30px;
+            background: var(--darker-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+            .info-section::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 3px;
+                height: 100%;
+                background: var(--gradient);
+                border-radius: 4px 0 0 4px;
+            }
+
+            .info-section h3 {
+                font-size: 24px;
+                color: var(--text-primary);
+                margin-bottom: 15px;
+                font-family: 'JetBrains Mono', monospace;
+            }
+
+                .info-section h3::before {
+                    content: '{ ';
+                    color: var(--primary);
+                }
+
+                .info-section h3::after {
+                    content: ' }';
+                    color: var(--primary);
+                }
+
+            .info-section p {
+                font-size: 17px;
+                line-height: 1.8;
+                color: var(--text-secondary);
+            }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            font-family: 'JetBrains Mono', monospace;
+            border: 2px solid var(--primary);
+        }
+
+            .action-btn.primary {
+                background-color: var(--primary);
+                color: var(--darker-bg);
+            }
+
+                .action-btn.primary:hover {
+                    background-color: transparent;
+                    color: var(--primary);
+                    transform: translateY(-3px);
+                    box-shadow: 0 8px 20px rgba(0, 255, 136, 0.3);
+                }
+
+            .action-btn.secondary {
+                background-color: transparent;
+                color: var(--primary);
+            }
+
+                .action-btn.secondary:hover {
+                    background-color: var(--primary);
+                    color: var(--darker-bg);
+                    transform: translateY(-3px);
+                    box-shadow: 0 8px 20px rgba(0, 255, 136, 0.3);
+                }
+
+        /* Footer */
+        footer {
+            background-color: var(--darker-bg);
+            color: var(--text-secondary);
+            padding: 25px;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+        }
+
+            footer p {
+                font-size: 15px;
+                font-weight: 300;
+                font-family: 'JetBrains Mono', monospace;
+            }
+
+                footer p::before {
+                    content: '// ';
+                    color: var(--primary);
+                }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px; /* ← Add this */
+            right: unset; /* ← Remove right control */
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: var(--darker-bg);
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 255, 136, 0.3);
+            z-index: 999;
+            border: 1px solid var(--primary);
+        }
+
+            .back-to-top.show {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .back-to-top:hover {
+                background-color: transparent;
+                color: var(--primary);
+                transform: translateY(-5px);
+            }
+
+        .center-back-btn {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .go-main-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary);
+            color: var(--darker-bg);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: 0.3s ease;
+            border: 2px solid var(--primary);
+        }
+
+            .go-main-btn:hover {
+                background-color: transparent;
+                color: var(--primary);
+                transform: translateY(-3px);
+                box-shadow: 0 8px 20px rgba(0, 255, 136, 0.3);
+            }
+
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                padding: 80px 20px 60px;
+            }
+
+                header h1 {
+                    font-size: 38px;
+                }
+
+                header p {
+                    font-size: 18px;
+                }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+                nav ul li {
+                    width: 100%;
+                    text-align: center;
+                    margin: 5px 0;
+                }
+
+            section {
+                margin: 40px 15px;
+                padding: 30px 20px;
+            }
+
+                section h2 {
+                    font-size: 28px;
+                }
+
+                    section h2::before {
+                        font-size: 18px;
+                    }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .action-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .info-section {
+                padding: 20px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            header h1 {
+                font-size: 48px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .container {
+                padding: 0 40px;
+            }
+
+            section {
+                padding: 60px 70px;
+            }
+
+            header {
+                padding: 160px 20px 120px;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>AwareNest</h1>
+            <p>UED Project Design Showcase</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#design" class="active"><i class="fas fa-palette"></i> Design</a></li>
+            <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="#prototype"><i class="fas fa-cube"></i> Prototype</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Design Section -->
+        <section id="design">
+            <h2>Design</h2>
+
+            <div class="figma-wrapper">
+                <iframe src="https://embed.figma.com/design/mRJieppUerKaA8hsBhvZy9/AwareNest--UED-Project?node-id=0-1&embed-host=share"
+                        allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="action-buttons">
+                <a href="https://www.figma.com/design/mRJieppUerKaA8hsBhvZy9/AwareNest--UED-Project" target="_blank" class="action-btn primary">
+                    <i class="fab fa-figma"></i> Open in Figma
+                </a>
+                <a href="#prototype" class="action-btn secondary">
+                    <i class="fas fa-play"></i> View Prototype
+                </a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>About</h2>
+
+            <div class="info-section">
+                <h3>Project Overview</h3>
+                <p>
+                    AwareNest is a comprehensive User Experience Design (UED) project that focuses on creating
+                    intuitive and engaging interfaces. This interactive Figma prototype showcases the complete
+                    design system, user flows, and interface components developed for the project.
+                </p>
+            </div>
+
+            <div class="info-section">
+                <h3>Key Features</h3>
+                <p>
+                    • Interactive prototypes with realistic user flows<br>
+                    • Comprehensive design system and component library<br>
+                    • Responsive layouts for multiple device sizes<br>
+                    • Carefully crafted user experience patterns<br>
+                    • Modern visual design with attention to accessibility
+                </p>
+            </div>
+
+            <div class="info-section">
+                <h3>How to Explore</h3>
+                <p>
+                    Navigate through the design using the Figma embed above. You can zoom in/out,
+                    pan across different screens, and explore the complete design system. Use the
+                    controls within the Figma viewer to switch between different pages and
+                    view detailed component specifications.
+                </p>
+            </div>
+        </section>
+
+        <!-- Prototype Section -->
+        <section id="prototype">
+            <h2>Prototype</h2>
+
+            <div class="info-section">
+                <h3>Interactive Experience</h3>
+                <p>
+                    Experience the full interactive prototype with working transitions, animations,
+                    and user interactions. Click on interactive elements to see how the design flows
+                    from one screen to another, providing a realistic preview of the final product.
+                </p>
+            </div>
+
+            <div class="action-buttons">
+                <a href="https://www.figma.com/design/mRJieppUerKaA8hsBhvZy9/AwareNest--UED-Project" target="_blank" class="action-btn primary">
+                    <i class="fas fa-external-link-alt"></i> Launch Full Prototype
+                </a>
+                <a href="#design" class="action-btn secondary">
+                    <i class="fas fa-arrow-up"></i> Back to Design
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <div class="center-back-btn">
+        <a href="index.html" class="go-main-btn">Back to Main Page</a>
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 AwareNest UED Project. All rights reserved.</p>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Back to top button functionality
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Active navigation highlight
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

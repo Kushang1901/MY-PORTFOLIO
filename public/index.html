@@ -213,6 +213,17 @@
                     <a href="python-software.zip" download class="download-btn"><i class="fas fa-download"></i> Download</a>
                 </div>
             </div>
+
+            <div class="project">
+                <h3>Awarenest - Harmony</h3>
+                <p>our personal space to understand emotions, build healthy habits, and feel better every day.</p>
+                <div class="project-links">
+                    <a href="figma_design.html" class="project-btn">
+                        <i class="fa-brands fa-figma"></i> View Design
+                    </a>
+
+                </div>
+            </div>
         </div>
     </section>
 
@@ -277,9 +288,21 @@
         </div>
     </footer>
 
-    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
 
     <script>
+
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
 
         const contactToggle = document.getElementById("contactToggle");
         const contactOptions = document.getElementById("contactOptions");

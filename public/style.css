@@ -1,4 +1,4 @@
-/* Google Font - Modern monospace and sans-serif combination */
+﻿/* Google Font - Modern monospace and sans-serif combination */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 /* CSS Reset & General Styles */
@@ -773,6 +773,42 @@ section {
 .call {
     color: #007bff;
 }
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    left: 30px; /* ← Add this */
+    right: unset; /* ← Remove right control */
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary);
+    color: var(--darker-bg);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 255, 136, 0.3);
+    z-index: 999;
+    border: 1px solid var(--primary);
+}
+
+
+    .back-to-top.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .back-to-top:hover {
+        background-color: transparent;
+        color: var(--primary);
+        transform: translateY(-5px);
+    }
 
 /* Responsive Design Improvements */
 @media (max-width: 768px) {
