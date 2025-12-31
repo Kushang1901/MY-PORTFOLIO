@@ -50,9 +50,19 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9564494037866343"
             crossorigin="anonymous"></script>
 
+
 </head>
 
 <body>
+    <div id="scroll-line">
+        <span></span>
+    </div>
+
+    <div id="loader">
+        <img src="https://res.cloudinary.com/dn45xyazy/image/upload/v1767164771/untitled_1x-1.0s-47px-47px_slwo85.gif"
+             alt="Loading...">
+    </div>
+
     <header>
         <div class="container">
             <h1>Kushang Acharya</h1>
@@ -228,8 +238,10 @@
 
             <div class="project">
                 <h3>ResumeCraft AI</h3>
-                <p>My first ever React website with combination of Bootstrap . The website which generates resume with your
-                basic details and creates a simple resume with the help of AI </p>
+                <p>
+                    My first ever React website with combination of Bootstrap . The website which generates resume with your
+                    basic details and creates a simple resume with the help of AI
+                </p>
                 <p>My first website which integrates AI </p>
                 <div class="project-links">
                     <a href="https://resumecraft-ai-alpha.vercel.app/"
@@ -365,6 +377,35 @@
         }
 
         window.onload = typeEffect;
+
+        window.addEventListener("load", function () {
+            const loader = document.getElementById("loader");
+            loader.style.opacity = "0";
+            loader.style.pointerEvents = "none";
+
+            setTimeout(() => {
+                loader.style.display = "none";
+            }, 500); // smooth fade
+        });
+
+        let lastScrollTop = 0;
+        const line = document.querySelector("#scroll-line span");
+
+        window.addEventListener("scroll", () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+
+            if (scrollTop > lastScrollTop) {
+                // Scrolling DOWN → Left to Right
+                line.style.width = scrollPercent + "%";
+            } else {
+                // Scrolling UP → Right to Left
+                line.style.width = scrollPercent + "%";
+            }
+
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
     </script>
     <script type="application/ld+json">
         {

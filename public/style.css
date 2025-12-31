@@ -810,6 +810,45 @@ section {
         transform: translateY(-5px);
     }
 
+/* Loader Screen */
+#loader {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    /* or #000 if you want dark */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+}
+
+    #loader img {
+        width: 70px; /* adjust size if needed */
+        height: auto;
+    }
+
+/* Scroll Direction Line */
+#scroll-line {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.08);
+    z-index: 100000;
+    overflow: hidden;
+}
+
+    #scroll-line span {
+        display: block;
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, #00ff88, #00ffcc);
+        transition: width 0.15s ease;
+    }
+
+
+
 /* Responsive Design Improvements */
 @media (max-width: 768px) {
     header {
