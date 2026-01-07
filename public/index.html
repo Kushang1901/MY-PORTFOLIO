@@ -13,20 +13,20 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dn45xyazy/image/upload/v1753021201/Kushang_ACharya_1_dfos3m.png">
+    <link rel="icon" type="image/png" href="favicon.png">
 
 
     <meta property="og:title" content="Kushang Acharya | Web Developer Portfolio">
     <meta property="og:description" content="MSc IT professional specializing in Web Development, Java, and Python. Discover my projects, achievements, and skills.">
-    <meta property="og:image" content="https://res.cloudinary.com/dn45xyazy/image/upload/v1753021201/Kushang_ACharya_1_dfos3m.png">
+    <meta property="og:image" content="favicon.png">
     <meta property="og:url" content="https://kushangacharya.vercel.app/">
     <meta property="og:type" content="website">
 
 
-    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:card" content="profile-image.png">
     <meta name="twitter:title" content="Kushang Acharya | Web Developer Portfolio">
     <meta name="twitter:description" content="MSc IT graduate passionate about Web Development, Java, and Python projects.">
-    <meta name="twitter:image" content="https://res.cloudinary.com/dn45xyazy/image/upload/v1753021201/Kushang_ACharya_1_dfos3m.png">
+    <meta name="twitter:image" content="profile-image.png">
 
     <meta name="theme-color" content="#ffffff">
     <meta name="mobile-web-app-capable" content="yes">
@@ -37,9 +37,9 @@
     <meta name="application-name" content="Kushang Acharya Portfolio">
     <meta name="publisher" content="Kushang Acharya">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="https://res.cloudinary.com/dn45xyazy/image/upload/v1753021201/Kushang_ACharya_1_dfos3m.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dn45xyazy/image/upload/v1753021201/Kushang_ACharya_1_dfos3m.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/dn45xyazy/image/upload/v1753021201/Kushang_ACharya_1_dfos3m.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="profile-image.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="profile-image.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="profile-image.png">
     <link rel="manifest" href="/site.webmanifest">
 
     <meta http-equiv="Cache-Control" content="max-age=31536000">
@@ -58,10 +58,7 @@
         <span></span>
     </div>
 
-    <div id="loader">
-        <img src="https://res.cloudinary.com/dn45xyazy/image/upload/v1767164771/untitled_1x-1.0s-47px-47px_slwo85.gif"
-             alt="Loading...">
-    </div>
+    
 
     <header>
         <div class="container">
@@ -406,6 +403,149 @@
 
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         });
+
+        // Add this JavaScript to your existing script section or create a new script file
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        // Function to initialize animations when DOM is loaded
+        function initScrollAnimations() {
+            // Animate section headings
+            document.querySelectorAll('section h2').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Animate profile elements
+            const profileImage = document.querySelector('.profile-image');
+            const profileContent = document.querySelector('.profile-content');
+            if (profileImage) observer.observe(profileImage);
+            if (profileContent) observer.observe(profileContent);
+
+            // Animate skills with stagger effect
+            const skills = document.querySelectorAll('#skills ul li');
+            skills.forEach((skill, index) => {
+                skill.style.transitionDelay = `${index * 0.05}s`;
+                observer.observe(skill);
+            });
+
+            // Animate achievement cards with stagger
+            const achievements = document.querySelectorAll('.achievement-card');
+            achievements.forEach((card, index) => {
+                card.style.transitionDelay = `${index * 0.1}s`;
+                observer.observe(card);
+            });
+
+            // Animate projects
+            document.querySelectorAll('.project').forEach(project => {
+                observer.observe(project);
+            });
+
+            // Animate contact items with stagger
+            const contactItems = document.querySelectorAll('#contact p');
+            contactItems.forEach((item, index) => {
+                item.style.transitionDelay = `${index * 0.15}s`;
+                observer.observe(item);
+            });
+
+            // Animate resume section
+            const resumeText = document.querySelector('#resume p');
+            const resumeActions = document.querySelector('.resume-actions');
+            if (resumeText) observer.observe(resumeText);
+            if (resumeActions) observer.observe(resumeActions);
+
+            // Animate entire sections
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+        }
+
+        // Advanced scroll animation with parallax effect
+        function initParallaxEffect() {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+
+                // Parallax effect for header
+                const header = document.querySelector('header');
+                if (header) {
+                    header.style.transform = `translateY(${scrolled * 0.5}px)`;
+                }
+
+                // Float effect for profile image
+                const profileImg = document.querySelector('.profile-image img');
+                if (profileImg) {
+                    const offset = scrolled * 0.05;
+                    profileImg.style.transform = `translateY(${Math.sin(offset) * 10}px)`;
+                }
+            });
+        }
+
+        // Progress indicator for scroll
+        function updateScrollProgress() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+
+            const line = document.querySelector("#scroll-line span");
+            if (line) {
+                line.style.width = scrollPercent + "%";
+            }
+        }
+
+        // Smooth reveal on page load
+        function initPageLoadAnimation() {
+            document.body.style.opacity = '0';
+            window.addEventListener('load', () => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            });
+        }
+
+        // Initialize all animations
+        document.addEventListener('DOMContentLoaded', () => {
+            initScrollAnimations();
+            initParallaxEffect();
+
+            // Add scroll event listener for progress
+            window.addEventListener('scroll', updateScrollProgress);
+
+            // Initial progress update
+            updateScrollProgress();
+        });
+
+        // Optional: Add viewport visibility detection
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        // Optional: Trigger animations on manual scroll
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    // Any additional scroll-based animations can go here
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
     </script>
     <script type="application/ld+json">
         {
@@ -413,7 +553,7 @@
           "@type": "Person",
           "name": "Kushang Acharya",
           "url": "https://kushangacharya.vercel.app/",
-          "image": "https://res.cloudinary.com/dn45xyazy/image/upload/v1753021201/Kushang_ACharya_1_dfos3m.png",
+          "image": "profile-image.png",
           "jobTitle": "Web Developer",
           "knowsAbout": ["HTML", "CSS", "JavaScript", "Java", "Python", "SQL", "Web Design", "Full Stack Development"],
           "alumniOf": "MSc IT",
