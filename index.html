@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kushang Acharya | 3D Portfolio</title>
+    <meta name="description" content="Official portfolio of Kushang Acharya — MSc IT professional skilled in Web Development, Java, and Python.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="favicon.png" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="assets/css/index.css" />
+
+
+    <!-- ✅ BASIC SEO -->
+    <meta name="title" content="Kushang Acharya | Web Developer Portfolio">
+    <meta name="description" content="Portfolio of Kushang Acharya — MSc IT graduate and Web Developer specializing in responsive websites, Java, Python, and modern UI design.">
+    <meta name="keywords" content="Kushang Acharya, Web Developer, Portfolio, Frontend Developer, Java Developer, Python Developer, India Developer, MSc IT">
+    <meta name="author" content="Kushang Acharya">
+    <meta name="robots" content="index, follow">
+
+    <!-- ✅ OPEN GRAPH (FOR LINK PREVIEW - WHATSAPP, LINKEDIN) -->
+    <meta property="og:title" content="Kushang Acharya | Portfolio">
+    <meta property="og:description" content="Frontend-first developer crafting responsive and user-centric web experiences.">
+    <meta property="og:image" content="https://kushangacharya.vercel.app/profile-image.png">
+    <meta property="og:url" content="https://kushangacharya.vercel.app/">
+    <meta property="og:type" content="website">
+
+    <!-- ✅ TWITTER SEO -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kushang Acharya | Portfolio">
+    <meta name="twitter:description" content="Modern web developer portfolio with projects in Java, Python, and AI.">
+    <meta name="twitter:image" content="https://kushangacharya.vercel.app/profile-image.png">
+
+    <!-- ✅ FAVICON -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Optional (better support) -->
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+
+    <!-- CANONICAL URL -->
+    <link rel="canonical" href="https://kushangacharya.vercel.app/">
+
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Kushang Acharya",
+          "url": "https://yourdomain.com",
+          "sameAs": [
+            "https://github.com/Kushang1901",
+            "https://www.linkedin.com/in/kushang-acharya-938a712a6/"
+          ],
+          "jobTitle": "Web Developer"
+        }
+    </script>
+
+    <!-- ✅ THEME COLOR -->
+    <meta name="theme-color" content="#0a0a0a">
+</head>
+<body>
+
+<!-- PROGRESS -->
+<div id="progress"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">K<span>.</span>Acharya</a>
+  <ul class="nav-links">
+    <li><a onclick="goToSection(0)">Hero</a></li>
+    <li><a onclick="goToSection(1)">About</a></li>
+    <li><a onclick="goToSection(2)">Skills</a></li>
+    <li><a onclick="goToSection(3)">Achievements</a></li>
+    <li><a onclick="goToSection(4)">Projects</a></li>
+    <li><a onclick="goToSection(5)">Contact</a></li>
+  </ul>
+  <span class="nav-section-label" id="nav-section-label">Hero</span>
+</nav>
+
+<!-- CANVAS -->
+<div id="canvas-container">
+  <canvas id="three-canvas"></canvas>
+</div>
+
+<!-- SCROLL HINT -->
+<div id="scroll-hint">
+  <div class="scroll-line"></div>
+  <span class="scroll-text">Scroll to explore</span>
+</div>
+
+<!-- SECTION LABEL -->
+<div id="section-label">00 / 06</div>
+
+<!-- FLOAT NAV -->
+<!--<div id="float-menu">
+  <div class="float-nav-btn active" onclick="goToSection(0)"><span class="dot"></span>Hero</div>
+  <div class="float-nav-btn" onclick="goToSection(1)"><span class="dot"></span>About</div>
+  <div class="float-nav-btn" onclick="goToSection(2)"><span class="dot"></span>Skills</div>
+  <div class="float-nav-btn" onclick="goToSection(3)"><span class="dot"></span>Achievements</div>
+  <div class="float-nav-btn" onclick="goToSection(4)"><span class="dot"></span>Projects</div>
+  <div class="float-nav-btn" onclick="goToSection(5)"><span class="dot"></span>Contact</div>
+</div>-->
+
+<!-- ==================== PANELS ==================== -->
+
+<!-- HERO PANEL -->
+<div class="panel" id="hero-panel">
+  <div class="hero-tag">MSc IT · Web Developer · India</div>
+  <h1 class="hero-name">Kushang<br><span class="lime">Acharya</span></h1>
+  <p class="hero-desc">Frontend-first developer. I craft responsive, user-centric web experiences with clean code and creative vision.</p>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-num">7+</span><span class="stat-label">Projects Built</span></div>
+    <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Certifications</span></div>
+    <div class="stat"><span class="stat-num">MSc</span><span class="stat-label">IT Graduate</span></div>
+  </div>
+  <div class="hero-cta">
+    <a onclick="goToSection(4)" class="btn-primary">View Projects</a>
+    <a onclick="goToSection(5)" class="btn-outline">Get in Touch</a>
+  </div>
+</div>
+
+<!-- ABOUT PANEL -->
+<div class="panel" id="about-panel">
+  <div class="glass-card">
+    <div class="sec-header"><span class="sec-num">01</span><h2 class="sec-title">About Me</h2><div class="sec-line"></div></div>
+    <div class="about-grid">
+      <div class="about-img-wrap">
+  <img src="profile-image.png" class="about-img" />
+  <div class="about-badge"><strong>MSc</strong> IT</div>
+</div>
+      <div class="about-text">
+        <p>"I'm an IT professional passionate about building innovative, user-friendly web experiences that solve real-world problems."</p>
+        <p>I hold an MSc in IT and bring hands-on experience across multiple projects — from e-commerce sites to AI-powered applications. My primary focus is Frontend Web Development, where design meets engineering.</p>
+        <p>I believe in continuous learning and staying at the forefront of an ever-evolving tech landscape. I'm driven by curiosity, precision, and the satisfaction of shipping something that truly works.</p>
+        <div class="about-links">
+          <a href="https://github.com/Kushang1901" target="_blank" class="btn-primary">GitHub</a>
+          <a href="https://www.linkedin.com/in/kushang-acharya-938a712a6/" target="_blank" class="btn-outline">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS PANEL -->
+<div class="panel" id="skills-panel">
+  <div class="glass-card">
+    <div class="sec-header"><span class="sec-num">02</span><h2 class="sec-title">Technical Skills</h2><div class="sec-line"></div></div>
+    <div class="skills-grid" id="skills-grid">
+      <div class="skill-card"><div class="skill-pct">92%</div><div class="skill-name">HTML5</div><div class="skill-bar-wrap"><div class="skill-bar" data-w="92"></div></div></div>
+      <div class="skill-card"><div class="skill-pct">88%</div><div class="skill-name">CSS3</div><div class="skill-bar-wrap"><div class="skill-bar" data-w="88"></div></div></div>
+      <div class="skill-card"><div class="skill-pct">80%</div><div class="skill-name">JavaScript</div><div class="skill-bar-wrap"><div class="skill-bar" data-w="80"></div></div></div>
+      <div class="skill-card"><div class="skill-pct">75%</div><div class="skill-name">Python</div><div class="skill-bar-wrap"><div class="skill-bar" data-w="75"></div></div></div>
+      <div class="skill-card"><div class="skill-pct">72%</div><div class="skill-name">Java</div><div class="skill-bar-wrap"><div class="skill-bar" data-w="72"></div></div></div>
+      <div class="skill-card"><div class="skill-pct">65%</div><div class="skill-name">C Language</div><div class="skill-bar-wrap"><div class="skill-bar" data-w="65"></div></div></div>
+      <div class="skill-card"><div class="skill-pct">78%</div><div class="skill-name">SQL</div><div class="skill-bar-wrap"><div class="skill-bar" data-w="78"></div></div></div>
+      <div class="skill-card"><div class="skill-pct">70%</div><div class="skill-name">Data Management</div><div class="skill-bar-wrap"><div class="skill-bar" data-w="70"></div></div></div>
+      <div class="skill-card"><div class="skill-pct">82%</div><div class="skill-name">Git</div><div class="skill-bar-wrap"><div class="skill-bar" data-w="82"></div></div></div>
+      <div class="skill-card"><div class="skill-pct">90%</div><div class="skill-name">Responsive Design</div><div class="skill-bar-wrap"><div class="skill-bar" data-w="90"></div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ACHIEVEMENTS PANEL -->
+<div class="panel" id="achievements-panel">
+  <div class="glass-card">
+    <div class="sec-header"><span class="sec-num">03</span><h2 class="sec-title">Highlights</h2><div class="sec-line"></div></div>
+    <div class="ach-list">
+      <a href="https://drive.google.com/file/d/1T61d6dQvfj1PV8rWF1VhjgL6ky8wEUHp/view?usp=drive_link" target="_blank" class="ach-row">
+        <div class="ach-icon"><i class="bi bi-award"></i></div>
+        <div class="ach-body"><h3>EduVetha</h3><p>Course completion, Internship & Outstanding certification</p></div>
+        <div class="ach-arrow">→</div>
+      </a>
+      <a href="https://drive.google.com/file/d/1oGNATiPNZ4O7hZArK9XacO92QydMlTMN/view?usp=drive_link" target="_blank" class="ach-row">
+        <div class="ach-icon"><i class="bi bi-briefcase"></i></div>
+        <div class="ach-body"><h3>TCS Offer Letter</h3><p>BPS Smart Hiring 2024</p></div>
+        <div class="ach-arrow">→</div>
+      </a>
+      <a href="https://drive.google.com/file/d/1mYpFHktMOQ82g5Fc6j_gnJSjfU0j8hRy/view?usp=drive_link" target="_blank" class="ach-row">
+        <div class="ach-icon"><i class="bi bi-mortarboard"></i></div>
+        <div class="ach-body"><h3>CMAT</h3><p>Common Management Admission Test</p></div>
+        <div class="ach-arrow">→</div>
+      </a>
+      <a href="https://drive.google.com/file/d/1v6RCmVr6trvNZ3Bl74AhZqWzRWnQY3tp/view?usp=drive_link" target="_blank" class="ach-row">
+        <div class="ach-icon"><i class="fa-solid fa-brain"></i></div>
+        <div class="ach-body"><h3>TCS ION NQT</h3><p>Cognitive and Psychometric Skills Assessment</p></div>
+        <div class="ach-arrow">→</div>
+      </a>
+      <a href="https://drive.google.com/file/d/1W1qgAhQYs6MwZ2a40GuUE-tYiQFzFfeV/view?usp=drive_link" target="_blank" class="ach-row">
+        <div class="ach-icon"><i class="bi bi-laptop"></i></div>
+        <div class="ach-body"><h3>TCS ION NQT — IT</h3><p>Programming, Cognitive and Psychometric Skills</p></div>
+        <div class="ach-arrow">→</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS PANEL -->
+<div class="panel" id="projects-panel">
+  <div class="glass-card">
+    <div class="sec-header"><span class="sec-num">04</span><h2 class="sec-title">Projects</h2><div class="sec-line"></div></div>
+    <div class="projects-grid">
+      <div class="proj-card">
+        <div class="proj-num">01 — E-Commerce</div>
+        <h3>SoundWave E-Commerce Website</h3>
+        <p>Fully responsive online store for electronic earphones and accessories — modern UI, shopping cart functionality, and secure checkout process.</p>
+        <div class="proj-links"><a href="https://ka-soundwave.netlify.app/" target="_blank" class="proj-link">↗ Live Demo</a></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-num">02 — Business Web</div>
+        <h3>Hotel Devang — Business Website</h3>
+        <p>Multi-page hotel booking site with modern UI design and real-time room reservation via WhatsApp messaging integration.</p>
+        <div class="proj-links"><a href="https://hoteldevang.com/" target="_blank" class="proj-link">↗ Live Demo</a></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-num">03 — Java App</div>
+        <h3>Java Image Processing Software</h3>
+        <p>Desktop application for advanced image processing — filters, transformations, batch operations. Built on OOP principles and design patterns.</p>
+        <div class="proj-links">
+          <a href="https://github.com/Kushang1901/java-image-processing" target="_blank" class="proj-link">GitHub</a>
+          <a href="java-software.zip" download class="proj-link">↓ Download</a>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-num">04 — Python App</div>
+        <h3>Python Image Processing Application</h3>
+        <p>Advanced Python software using OpenCV and PIL — facial recognition, image enhancement, and automated batch processing.</p>
+        <div class="proj-links">
+          <a href="https://github.com/Kushang1901/Python-Image-Processing" target="_blank" class="proj-link">GitHub</a>
+          <a href="python-software.zip" download class="proj-link">↓ Download</a>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-num">05 — UX / Figma</div>
+        <h3>Awarenest — Harmony</h3>
+        <p>Your personal space to understand emotions, build healthy habits, and feel better every day. A wellness-focused UI design concept.</p>
+        <div class="proj-links"><a href="figma_design.html" class="proj-link">View Design</a></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-num">06 — React + AI</div>
+        <h3>ResumeCraft AI</h3>
+        <p>First React project integrating Bootstrap and AI — generates polished resumes from user details. Marks the debut of AI integration in my work.</p>
+        <div class="proj-links"><a href="https://resumecraft-ai-alpha.vercel.app/" target="_blank" class="proj-link">↗ Live Demo</a></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-num">07 — AI Chatbot</div>
+        <h3>Jarvis — AI Chatbot</h3>
+        <p>AI-themed chatbot with text and voice input, speech-to-text & text-to-speech, and a Jarvis-like interactive assistant experience.</p>
+        <div class="proj-links"><a href="https://smart-jarvis.vercel.app/" target="_blank" class="proj-link">↗ Live Demo</a></div>
+      </div>
+      <div class="proj-card" style="background:transparent; border-color:transparent; display:flex; align-items:center; justify-content:center;">
+        <div style="text-align:center;">
+          <div style="font-family: var(--font-head); font-size:2rem; font-weight:800; color:var(--lime); margin-bottom:0.5rem;">Ready to hire me?</div>
+          <div style="font-size:0.8rem; color:var(--muted); margin-bottom:1.5rem;">View or download my latest resume.</div>
+          <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+            <a href="UPDATED CV.pdf" target="_blank" class="btn-primary">View Resume</a>
+            <a href="UPDATED CV.pdf" download class="btn-outline">Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT PANEL -->
+<div class="panel" id="contact-panel">
+  <div class="glass-card">
+    <div class="sec-header"><span class="sec-num">06</span><h2 class="sec-title">Contact</h2><div class="sec-line"></div></div>
+    <div class="contact-grid">
+      <div class="contact-left">
+        <div class="terminal-header">
+          <div class="t-dot red"></div><div class="t-dot yellow"></div><div class="t-dot green"></div>
+          <span class="terminal-title">contact.sh</span>
+        </div>
+        <div class="terminal-line"><span class="t-prompt">$ </span><span class="t-cmd">whoami</span></div>
+        <div class="terminal-line" style="margin-bottom:1rem;"><span class="t-val">kushang_acharya</span></div>
+        <div class="terminal-line"><span class="t-prompt">$ </span><span class="t-cmd">cat message.txt</span></div>
+        <div class="terminal-line" style="margin-top:0.4rem; color: var(--muted); font-size:0.78rem; line-height:1.8; font-style:italic;">
+          "Open to opportunities,<br> collaborations, and interesting<br> conversations. Let's build something<br> great together."
+        </div>
+        <div class="terminal-line" style="margin-top:1rem;"><span class="t-prompt">$ </span><span class="cursor-blink">_</span></div>
+      </div>
+      <div class="contact-items">
+        <a href="mailto:kushangacharya1901@gmail.com" class="contact-item">
+          <div class="ci-icon"><i class="bi bi-envelope"></i></div>
+          <div><span class="ci-label">Email</span><span class="ci-val">kushangacharya1901@gmail.com</span></div>
+        </a>
+        <a href="https://www.linkedin.com/in/kushang-acharya-938a712a6/" target="_blank" class="contact-item">
+          <div class="ci-icon"><i class="bi bi-linkedin"></i></div>
+          <div><span class="ci-label">LinkedIn</span><span class="ci-val">Kushang Acharya</span></div>
+        </a>
+        <a href="https://github.com/Kushang1901" target="_blank" class="contact-item">
+          <div class="ci-icon" style="font-size:0.9rem;"><i class="bi bi-github"></i></div>
+          <div><span class="ci-label">GitHub</span><span class="ci-val">Kushang1901</span></div>
+        </a>
+        <a href="https://wa.me/919724236385" target="_blank" class="contact-item">
+          <div class="ci-icon" style="font-size:0.9rem;"><i class="bi bi-whatsapp"></i></div>
+          <div><span class="ci-label">WhatsApp</span><span class="ci-val">+91 97242 36385</span></div>
+        </a>
+        <div style="text-align:center; padding-top:0.5rem; border-top:0.5px solid var(--glass-border); margin-top:0.5rem;">
+          <span style="font-size:0.65rem; color:var(--muted); letter-spacing:0.08em;">© 2026 Kushang Acharya · All Rights Reserved</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- THREE.JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="assets/js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AwareNest — UED Project · Kushang Acharya</title>
+    <meta name="description" content="AwareNest UED Project — Figma Design Showcase by Kushang Acharya.">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <style rel="stylesheet" href="assets/css/figma.css"></style>
+</head>
+<body>
+
+    <!-- CURSOR -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- GLOW ORBS -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <!-- PROGRESS -->
+    <div id="progress-bar"></div>
+
+    <!-- CANVAS BG -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- NAV -->
+    <nav id="mainNav">
+        <a href="index.html" class="nav-logo">K<span>.</span>Acharya</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#design" class="active">Design</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#prototype">Prototype</a></li>
+            <li><a href="index.html" class="nav-back">← Portfolio</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger" onclick="toggleNav()">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- PAGE HERO -->
+        <section id="page-hero">
+            <div class="page-hero-tag">UED Project · Figma Design · Wellness App</div>
+            <h1 class="page-hero-title">Aware<span class="accent">Nest</span></h1>
+            <p class="page-hero-desc">
+                A wellness-focused UI design — your personal space to understand emotions, build healthy habits, and feel better every day.
+            </p>
+            <div class="hero-cta">
+                <a href="#design" class="btn-primary"><span class="icon-figma"></span>View Design</a>
+                <a href="#prototype" class="btn-outline"><span class="icon-play"></span>Prototype</a>
+            </div>
+            <div class="scroll-indicator">
+                <div class="scroll-line-anim"></div>
+                <span>Scroll to explore</span>
+            </div>
+        </section>
+
+        <!-- DESIGN SECTION -->
+        <section id="design">
+            <div class="section-header fade-up">
+                <span class="section-num">01</span>
+                <h2 class="section-title">Design</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="figma-wrapper fade-up">
+                <div class="figma-overlay-label">✦ Figma Embed</div>
+                <iframe src="https://embed.figma.com/design/mRJieppUerKaA8hsBhvZy9/AwareNest--UED-Project?node-id=0-1&embed-host=share"
+                        allowfullscreen
+                        title="AwareNest Figma Design"
+                        loading="lazy">
+                </iframe>
+            </div>
+
+            <div class="action-buttons fade-up" style="transition-delay:0.15s">
+                <a href="https://www.figma.com/design/mRJieppUerKaA8hsBhvZy9/AwareNest--UED-Project" target="_blank" class="btn-primary">
+                    <span class="icon-figma"></span>Open in Figma
+                </a>
+                <a href="#prototype" class="btn-outline">
+                    <span class="icon-down"></span>View Prototype
+                </a>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about">
+            <div class="section-header fade-up">
+                <span class="section-num">02</span>
+                <h2 class="section-title">About the Project</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="info-cards">
+                <div class="info-card fade-up">
+                    <div class="info-card-num">01 — Overview</div>
+                    <h3>Project Overview</h3>
+                    <p>AwareNest is a comprehensive User Experience Design (UED) project focused on creating intuitive and engaging interfaces for mental wellness. This interactive Figma prototype showcases the complete design system, user flows, and interface components developed for the project.</p>
+                    <div class="ds-pills">
+                        <span class="ds-pill">UX Design</span>
+                        <span class="ds-pill">Figma</span>
+                        <span class="ds-pill">Wellness</span>
+                    </div>
+                </div>
+
+                <div class="info-card fade-up" style="transition-delay:0.1s">
+                    <div class="info-card-num">02 — Features</div>
+                    <h3>Key Features</h3>
+                    <p>Interactive prototypes with realistic user flows · Comprehensive design system and component library · Responsive layouts for multiple device sizes · Carefully crafted user experience patterns · Modern visual design with accessibility in mind.</p>
+                    <div class="ds-pills">
+                        <span class="ds-pill">Prototyping</span>
+                        <span class="ds-pill">Components</span>
+                        <span class="ds-pill">Accessibility</span>
+                    </div>
+                </div>
+
+                <div class="info-card fade-up" style="transition-delay:0.2s">
+                    <div class="info-card-num">03 — Explore</div>
+                    <h3>How to Explore</h3>
+                    <p>Navigate through the design using the Figma embed above. Zoom in/out, pan across different screens, and explore the complete design system. Use the controls within the viewer to switch between pages and view detailed component specifications.</p>
+                    <div class="ds-pills">
+                        <span class="ds-pill">Multi-screen</span>
+                        <span class="ds-pill">Design System</span>
+                        <span class="ds-pill">Responsive</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROTOTYPE SECTION -->
+        <section id="prototype">
+            <div class="section-header fade-up">
+                <span class="section-num">03</span>
+                <h2 class="section-title">Prototype</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="prototype-highlight">
+                <div class="proto-card fade-up">
+                    <div class="proto-card-icon"><span class="icon-mouse"></span></div>
+                    <h3>Interactive Experience</h3>
+                    <p>Experience the full interactive prototype with working transitions, animations, and user interactions. Click on interactive elements to see how the design flows from one screen to another, providing a realistic preview of the final product.</p>
+                </div>
+
+                <div class="proto-card fade-up" style="transition-delay:0.1s">
+                    <div class="proto-card-icon"><span class="icon-mobile"></span></div>
+                    <h3>Responsive Design</h3>
+                    <p>Every screen is crafted for multiple device sizes — mobile, tablet, and desktop. The design system ensures consistency across breakpoints while maintaining a native feel on each platform.</p>
+                </div>
+            </div>
+
+            <div class="action-buttons fade-up" style="transition-delay:0.2s">
+                <a href="https://www.figma.com/design/mRJieppUerKaA8hsBhvZy9/AwareNest--UED-Project" target="_blank" class="btn-primary">
+                    <span class="icon-link"></span>Launch Full Prototype
+                </a>
+                <a href="#design" class="btn-outline">
+                    <span class="icon-up"></span>Back to Design
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- BACK STRIP -->
+    <div class="back-strip">
+        <div class="back-strip-text fade-up">
+            <h2>Want to see<br><em>more work?</em></h2>
+            <p>Head back to the main portfolio for all projects.</p>
+        </div>
+        <div class="back-strip-btns fade-up" style="transition-delay:0.15s">
+            <a href="index.html" class="strip-btn-dark"><span class="icon-back"></span>Back to Portfolio</a>
+            <a href="https://www.figma.com/design/mRJieppUerKaA8hsBhvZy9/AwareNest--UED-Project" target="_blank" class="strip-btn-ghost"><span class="icon-figma"></span>Open Figma</a>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2025 Kushang Acharya · AwareNest UED Project</p>
+        <div class="footer-links">
+            <a href="https://github.com/Kushang1901" target="_blank"><span class="icon-gh"></span></a>
+            <a href="https://www.linkedin.com/in/kushang-acharya-938a712a6/" target="_blank"><span class="icon-li"></span></a>
+            <a href="https://wa.me/919724236385" target="_blank"><span class="icon-wa"></span></a>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <a href="#" id="back-top">↑</a>
+
+    <!-- FLOAT CONTACT -->
+    <div class="float-contact">
+        <div class="float-options" id="floatOptions">
+            <a href="tel:+919724236385" class="float-btn" title="Call"><span class="icon-phone"></span></a>
+            <a href="https://wa.me/919724236385" target="_blank" class="float-btn" title="WhatsApp"><span class="icon-wa"></span></a>
+            <a href="mailto:kushangacharya1901@gmail.com" class="float-btn" title="Email"><span class="icon-mail"></span></a>
+        </div>
+        <button class="float-toggle" id="floatToggle">✦</button>
+    </div>
+
+    <!-- THREE.JS particle background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+   <script src="assets/js/figma.js"></script>
+</body>
+</html>
