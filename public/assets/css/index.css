@@ -1023,3 +1023,57 @@ nav {
         padding: 0.6rem 1rem;
     }
 }
+
+/* ============================================================
+   🚀 DEEP SPACE UPGRADE — Warp FX + Enhanced Panels
+   ============================================================ */
+
+/* Enhanced panel transitions */
+.panel {
+    transition: opacity 0.5s cubic-bezier(0.16,1,0.3,1),
+                transform 0.5s cubic-bezier(0.16,1,0.3,1),
+                filter 0.5s ease;
+    filter: blur(4px);
+}
+
+.panel.visible { filter: blur(0px); }
+
+#hero-panel { transform: translate(-50%, -50%) scale(0.92) translateY(30px); }
+#hero-panel.visible { transform: translate(-50%, -50%) scale(1) translateY(0); }
+
+#about-panel, #skills-panel, #achievements-panel, #contact-panel {
+    transform: translate(-50%, -50%) translateY(30px);
+}
+#about-panel.visible, #skills-panel.visible,
+#achievements-panel.visible, #contact-panel.visible {
+    transform: translate(-50%, -50%) translateY(0);
+}
+
+#projects-panel { transform: translate(-50%, -50%) scale(0.88) translateY(30px); }
+#projects-panel.visible { transform: translate(-50%, -50%) scale(0.9) translateY(0); }
+
+.glass-card {
+    background: rgba(5,8,20,0.88);
+    border: 0.5px solid rgba(200,245,66,0.18);
+    box-shadow: 0 0 0 0.5px rgba(200,245,66,0.05), 0 20px 60px rgba(0,0,0,0.6), inset 0 0 80px rgba(0,10,30,0.4);
+}
+
+#section-label { color: rgba(200,245,66,0.6); text-shadow: 0 0 12px rgba(200,245,66,0.4); }
+#progress { background: linear-gradient(90deg,#4488ff,#c8f542); box-shadow: 0 0 12px var(--lime),0 0 24px rgba(200,245,66,0.4); }
+nav { background: rgba(2,4,12,0.8); box-shadow: 0 4px 30px rgba(0,0,0,0.5); }
+.hero-name { text-shadow: 0 0 40px rgba(200,245,66,0.1); }
+.stat-num { text-shadow: 0 0 20px rgba(200,245,66,0.5); }
+.scroll-text { color: rgba(200,245,66,0.7); letter-spacing: 0.2em; }
+.scroll-line { background: linear-gradient(to bottom,#c8f542,#4488ff,transparent); box-shadow: 0 0 6px rgba(200,245,66,0.4); }
+.skill-bar { background: linear-gradient(90deg,#4488ff,#c8f542); box-shadow: 0 0 8px rgba(200,245,66,0.3); transition: width 1.4s cubic-bezier(0.16,1,0.3,1); }
+.btn-primary { box-shadow: 0 0 20px rgba(200,245,66,0.25); }
+.btn-primary:hover { box-shadow: 0 0 35px rgba(200,245,66,0.45); }
+.nav-logo { text-shadow: 0 0 15px rgba(200,245,66,0.4); }
+.sec-num { text-shadow: 0 0 10px rgba(200,245,66,0.6); }
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-thumb { background: rgba(200,245,66,0.2); border-radius: 3px; }
+
+@media (max-width:600px) {
+    .panel { max-height: 88vh; }
+    .hero-name, .stat-num { text-shadow: none; }
+}
