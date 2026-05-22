@@ -54,7 +54,7 @@ function buildStarLayer(count, spread, size, opacity, color) {
         const theta = Math.random() * Math.PI * 2;
         const phi = Math.acos(2 * Math.random() - 1);
         const r = spread * (0.3 + Math.random() * 0.7);
-        pos[i * 3]     = r * Math.sin(phi) * Math.cos(theta);
+        pos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
         pos[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
         pos[i * 3 + 2] = r * Math.cos(phi);
     }
@@ -67,8 +67,8 @@ function buildStarLayer(count, spread, size, opacity, color) {
 }
 
 const starsDistant = buildStarLayer(6000, 700, 0.3, 0.9, 0xffffff);
-const starsMid     = buildStarLayer(2000, 400, 0.5, 0.7, 0xc8e0ff);
-const starsNear    = buildStarLayer(600,  200, 0.8, 0.5, 0xc8f542);
+const starsMid = buildStarLayer(2000, 400, 0.5, 0.7, 0xc8e0ff);
+const starsNear = buildStarLayer(600, 200, 0.8, 0.5, 0xc8f542);
 
 // ─── WARP STREAKS (hyperspace lines) ───
 const warpGroup = new THREE.Group();
@@ -81,18 +81,18 @@ function buildWarpLines() {
     warpLines.length = 0;
     for (let i = 0; i < WARP_COUNT; i++) {
         const theta = Math.random() * Math.PI * 2;
-        const phi   = Math.acos(2 * Math.random() - 1);
-        const r     = 5 + Math.random() * 25;
-        const dir   = new THREE.Vector3(
+        const phi = Math.acos(2 * Math.random() - 1);
+        const r = 5 + Math.random() * 25;
+        const dir = new THREE.Vector3(
             Math.sin(phi) * Math.cos(theta),
             Math.sin(phi) * Math.sin(theta),
             Math.cos(phi)
         ).normalize();
         const len = 1.5 + Math.random() * 8;
-        const pts  = [dir.clone().multiplyScalar(r), dir.clone().multiplyScalar(r + len)];
-        const geo  = new THREE.BufferGeometry().setFromPoints(pts);
-        const hue  = Math.random() > 0.7 ? 0xc8f542 : 0xaaddff;
-        const mat  = new THREE.LineBasicMaterial({ color: hue, transparent: true, opacity: 0 });
+        const pts = [dir.clone().multiplyScalar(r), dir.clone().multiplyScalar(r + len)];
+        const geo = new THREE.BufferGeometry().setFromPoints(pts);
+        const hue = Math.random() > 0.7 ? 0xc8f542 : 0xaaddff;
+        const mat = new THREE.LineBasicMaterial({ color: hue, transparent: true, opacity: 0 });
         const line = new THREE.Line(geo, mat);
         warpGroup.add(line);
         warpLines.push({ line, mat, r, dir, len, theta, phi, speed: 1.5 + Math.random() * 3 });
@@ -102,9 +102,9 @@ buildWarpLines();
 
 // ─── WARP STATE ───
 let warpProgress = 0;    // 0 = normal, 1 = full warp
-let warpTarget   = 0;
-let isWarping    = false;
-let warpTimeout  = null;
+let warpTarget = 0;
+let isWarping = false;
+let warpTimeout = null;
 
 function triggerWarp() {
     clearTimeout(warpTimeout);
@@ -119,7 +119,7 @@ function triggerWarp() {
 // ─── SECTION ZONE OBJECTS ───
 // Each zone has a collection of 3D objects that are visible near that camera Z
 
-const ZONE_Z = [0, -180, -360, -540, -720, -900];
+const ZONE_Z = [0, -180, -360, -540, -720, -900, -1080];
 const objects3D = [];
 
 function addMesh(mesh, z, xOff, yOff, rotSpeed) {
@@ -201,8 +201,8 @@ const skillPositions = [
 skillPositions.forEach((pos, i) => {
     const size = 0.8 + Math.random() * 0.8;
     const geo = i % 3 === 0 ? new THREE.OctahedronGeometry(size) :
-                i % 3 === 1 ? new THREE.BoxGeometry(size, size, size) :
-                              new THREE.TetrahedronGeometry(size);
+        i % 3 === 1 ? new THREE.BoxGeometry(size, size, size) :
+            new THREE.TetrahedronGeometry(size);
     const mat = new THREE.MeshStandardMaterial({
         color: i % 2 === 0 ? 0xc8f542 : 0x4488ff,
         metalness: 0.5, roughness: 0.3,
@@ -224,7 +224,48 @@ for (let i = 0; i < skillNodes.length - 1; i++) {
     scene.add(new THREE.Line(geo, new THREE.LineBasicMaterial({ color: 0xc8f542, transparent: true, opacity: 0.08 })));
 }
 
-// ── ZONE 3: ACHIEVEMENTS — Spiral galaxy arm ──
+// ── ZONE 3: INTERNSHIP — Rotating holographic workspace core ──
+const internshipGroup = new THREE.Group();
+internshipGroup.position.set(0, 0, ZONE_Z[3] - 40);
+scene.add(internshipGroup);
+
+// Glowing central octahedron
+const coreGeo = new THREE.OctahedronGeometry(5, 1);
+const coreMat = new THREE.MeshStandardMaterial({
+    color: 0xc8f542,
+    metalness: 0.9,
+    roughness: 0.1,
+    transparent: true,
+    opacity: 0.8,
+    emissive: 0xc8f542,
+    emissiveIntensity: 0.4
+});
+const coreMesh = new THREE.Mesh(coreGeo, coreMat);
+internshipGroup.add(coreMesh);
+
+// Glowing wireframe outer cage
+const cageGeo = new THREE.IcosahedronGeometry(6.5, 1);
+const cageMat = new THREE.MeshBasicMaterial({
+    color: 0x4488ff,
+    wireframe: true,
+    transparent: true,
+    opacity: 0.2
+});
+const cageMesh = new THREE.Mesh(cageGeo, cageMat);
+internshipGroup.add(cageMesh);
+
+// Floating orbital satellite cubes/nodes
+const internNodes = [];
+for (let i = 0; i < 4; i++) {
+    const node = new THREE.Mesh(
+        new THREE.BoxGeometry(0.6, 0.6, 0.6),
+        new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.9 })
+    );
+    internshipGroup.add(node);
+    internNodes.push({ mesh: node, radius: 8, speed: 0.5 + i * 0.2, angle: (i / 4) * Math.PI * 2, axis: i % 2 });
+}
+
+// ── ZONE 4: ACHIEVEMENTS — Spiral galaxy arm ──
 const galaxyGeo = new THREE.BufferGeometry();
 const galaxyCount = 8000;
 const gPos = new Float32Array(galaxyCount * 3);
@@ -235,12 +276,12 @@ for (let i = 0; i < galaxyCount; i++) {
     const angle = t * Math.PI * 10 + arm * (Math.PI * 2 / 3);
     const r = t * 40;
     const scatter = (1 - t) * 3;
-    gPos[i * 3]     = Math.cos(angle) * r + (Math.random() - 0.5) * scatter;
+    gPos[i * 3] = Math.cos(angle) * r + (Math.random() - 0.5) * scatter;
     gPos[i * 3 + 1] = (Math.random() - 0.5) * 3 * (1 - t);
-    gPos[i * 3 + 2] = ZONE_Z[3] - 30 + Math.sin(angle) * r + (Math.random() - 0.5) * scatter;
+    gPos[i * 3 + 2] = ZONE_Z[4] - 30 + Math.sin(angle) * r + (Math.random() - 0.5) * scatter;
     // Color from center: white → yellow → lime
     const c = t;
-    gCol[i * 3]     = 1 - c * 0.3;
+    gCol[i * 3] = 1 - c * 0.3;
     gCol[i * 3 + 1] = 1 - c * 0.05;
     gCol[i * 3 + 2] = c < 0.5 ? 1 - c * 2 : 0;
 }
@@ -250,9 +291,9 @@ const galaxyMat = new THREE.PointsMaterial({ size: 0.15, vertexColors: true, tra
 const galaxyPts = new THREE.Points(galaxyGeo, galaxyMat);
 scene.add(galaxyPts);
 
-// ── ZONE 4: PROJECTS — Holographic hexagonal portal ──
+// ── ZONE 5: PROJECTS — Holographic hexagonal portal ──
 const hexPortalGroup = new THREE.Group();
-hexPortalGroup.position.set(0, 0, ZONE_Z[4] - 40);
+hexPortalGroup.position.set(0, 0, ZONE_Z[5] - 40);
 scene.add(hexPortalGroup);
 
 // Hexagonal rings
@@ -277,10 +318,11 @@ for (let i = 0; i < 6; i++) {
     satelliteGroup.add(sat);
 }
 
-// ── ZONE 5: CONTACT — Black hole / event horizon ──
+// ── ZONE 6: CONTACT — Black hole / event horizon ──
 const blackHoleGroup = new THREE.Group();
-blackHoleGroup.position.set(0, 0, ZONE_Z[5] - 50);
+blackHoleGroup.position.set(0, 0, ZONE_Z[6] - 50);
 scene.add(blackHoleGroup);
+
 
 // Accretion disk
 const diskGeo = new THREE.RingGeometry(8, 28, 128);
@@ -360,21 +402,21 @@ function spawnComet() {
     comets.push(comet);
 }
 
-// ─── SCROLL / SECTION SYSTEM ───
 const SECTIONS = [
-    { id: 'hero-panel',         label: 'Hero',         num: '00', camZ: 50    },
-    { id: 'about-panel',        label: 'About',        num: '01', camZ: -130  },
-    { id: 'skills-panel',       label: 'Skills',       num: '02', camZ: -310  },
-    { id: 'achievements-panel', label: 'Achievements', num: '03', camZ: -490  },
-    { id: 'projects-panel',     label: 'Projects',     num: '04', camZ: -670  },
-    { id: 'contact-panel',      label: 'Contact',      num: '06', camZ: -850  },
+    { id: 'hero-panel', label: 'Hero', num: '00', camZ: 50 },
+    { id: 'about-panel', label: 'About', num: '01', camZ: -130 },
+    { id: 'skills-panel', label: 'Skills', num: '02', camZ: -310 },
+    { id: 'internship-panel', label: 'Internship', num: '03', camZ: -490 },
+    { id: 'achievements-panel', label: 'Achievements', num: '04', camZ: -670 },
+    { id: 'projects-panel', label: 'Projects', num: '05', camZ: -850 },
+    { id: 'contact-panel', label: 'Contact', num: '06', camZ: -1030 },
 ];
 
-let scrollProgress  = 0;
-let targetScroll    = 0;
-let currentSection  = 0;
-let skillsAnimated  = false;
-let lastSection     = -1;
+let scrollProgress = 0;
+let targetScroll = 0;
+let currentSection = 0;
+let skillsAnimated = false;
+let lastSection = -1;
 let mouseX = 0, mouseY = 0;
 
 // Smooth inertia scroll
@@ -405,7 +447,7 @@ function goToSection(idx) {
     function animJump(ts) {
         if (!start) start = ts;
         const t = Math.min((ts - start) / 900, 1);
-        const ease = t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3)/2;
+        const ease = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
         targetScroll = from + (to - from) * ease;
         if (t < 1) requestAnimationFrame(animJump);
         else { targetScroll = to; velocity = 0; }
@@ -504,17 +546,17 @@ function animate() {
     // ── Star streaking during warp ──
     const baseOpacity0 = 0.9, baseOpacity1 = 0.7, baseOpacity2 = 0.5;
     starsDistant.material.opacity = baseOpacity0 * (1 - warpProgress * 0.6);
-    starsMid.material.opacity     = baseOpacity1 * (1 - warpProgress * 0.4);
-    starsNear.material.opacity    = baseOpacity2 + warpProgress * 0.3;
+    starsMid.material.opacity = baseOpacity1 * (1 - warpProgress * 0.4);
+    starsNear.material.opacity = baseOpacity2 + warpProgress * 0.3;
 
     // Slow starfield rotation
     starsDistant.rotation.y = t * 0.005;
-    starsMid.rotation.y     = t * 0.008;
+    starsMid.rotation.y = t * 0.008;
 
     // ── Hero zone ──
-    heroRing.rotation.z  = t * 0.08;
+    heroRing.rotation.z = t * 0.08;
     heroRing2.rotation.z = -t * 0.05;
-    heroOrb.rotation.y   = t * 0.12;
+    heroOrb.rotation.y = t * 0.12;
     heroWireframe.rotation.y = t * 0.15;
     heroWireframe.rotation.x = t * 0.07;
     // Pulse glow on hero orb
@@ -546,6 +588,20 @@ function animate() {
         n.mesh.position.y = n.baseY + Math.sin(t * 0.6 + n.phase) * 1.2;
         n.mesh.rotation.x += 0.008;
         n.mesh.rotation.y += 0.012;
+    });
+
+    // ── Internship zone ──
+    internshipGroup.rotation.y = -t * 0.08;
+    internshipGroup.rotation.x = t * 0.04;
+    coreMesh.rotation.y = t * 0.15;
+    cageMesh.rotation.z = -t * 0.1;
+    internNodes.forEach(n => {
+        n.angle += n.speed * 0.01;
+        if (n.axis === 0) {
+            n.mesh.position.set(Math.cos(n.angle) * n.radius, Math.sin(n.angle) * n.radius, 0);
+        } else {
+            n.mesh.position.set(0, Math.cos(n.angle) * n.radius, Math.sin(n.angle) * n.radius);
+        }
     });
 
     // ── Galaxy rotation ──
