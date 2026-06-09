@@ -3,8 +3,8 @@
   "short_name": "Portfolio",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#ffffff",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
   "icons": [
     {
       "src": "https://res.cloudinary.com/dn45xyazy/image/upload/v1753021201/Kushang_ACharya_1_dfos3m.png",
