@@ -7,7 +7,12 @@
   "theme_color": "#0a0a0a",
   "icons": [
     {
-      "src": "https://res.cloudinary.com/dn45xyazy/image/upload/v1753021201/Kushang_ACharya_1_dfos3m.png",
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
