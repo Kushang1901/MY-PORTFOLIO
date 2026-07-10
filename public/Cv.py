@@ -722,6 +722,16 @@ def generate_cv(output_path="kushang_acharya_cv.pdf"):
 
     projects = [
         {
+            "title": "CVGrid – AI Free Resume Maker",
+            "tags": ["React.js", "AI Integration", "Bootstrap", "Web App"],
+            "url":  "http://cvgrid.in/",
+            "button_text": "Visit Site",
+            "bullets": [
+                "Developed an AI-powered resume builder utilizing React.js and Bootstrap to generate professional, print-ready resumes.",
+                "Integrated AI-driven content optimization features for bullet points and professional summaries.",
+            ],
+        },
+        {
             "title": "SoundWave E-Commerce Website",
             "tags": ["HTML5", "CSS3", "JavaScript", "Responsive"],
             "url":  "https://my-soundwave.vercel.app/",
@@ -848,4 +858,4 @@ def generate_cv(output_path="kushang_acharya_cv.pdf"):
 
 
 if __name__ == "__main__":
-    generate_cv(r"C:\Users\kusha\Downloads\kushang_acharya_cv_improved.pdf")
+    generate_cv(r"C:\Users\Kushang\Downloads\kushang_acharya_cv_improved.pdf")
