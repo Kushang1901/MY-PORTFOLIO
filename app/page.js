@@ -51,17 +51,17 @@ const achievements = [
 ];
 
 const projects = [
-  
+
   {
     title: "Hotel Devang",
     subtitle: "Real time Booking Platform & Inventory system",
     image: "/hotel_devang.png",
-    tech: ["Next.js", "Tailwind", "Framer","HTML/CSS/JS"],
+    tech: ["Next.js", "Tailwind", "Framer", "HTML/CSS/JS"],
     actions: [
       { label: "View Site", href: "https://hoteldevang.com/", variant: "primary" },
     ],
   },
-   {
+  {
     title: "CVGRID",
     subtitle: "Grid-based Content Architect",
     image: "/CVGrid.png",
@@ -92,7 +92,7 @@ const projects = [
       { label: "Download Project", href: "https://github.com/Kushang1901/Python-Image-Processing/archive/refs/heads/main.zip", variant: "secondary" },
     ],
   },
- 
+
   {
     title: "SoundWave E-Commerce",
     subtitle: "Premium Audio Retail Experience",
@@ -105,7 +105,7 @@ const projects = [
   {
     title: "AWARENEST - Harmony",
     subtitle: "Mobile App UI / Figma Design Concept",
-    image: "/awareNest.png",
+    image: "/awarenest.png",
     tech: ["Figma", "UX", "Mobile App"],
     actions: [
       { label: "View Design", href: "https://www.figma.com/design/mRJieppUerKaA8hsBhvZy9/AwareNest--UED-Project?node-id=0-1&p=f&t=FV4rhhuJyJp3cylN-0", variant: "primary" },
