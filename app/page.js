@@ -111,6 +111,15 @@ const projects = [
       { label: "View Design", href: "https://www.figma.com/design/mRJieppUerKaA8hsBhvZy9/AwareNest--UED-Project?node-id=0-1&p=f&t=FV4rhhuJyJp3cylN-0", variant: "primary" },
     ],
   },
+  {
+    title: "Comtech Systems",
+    subtitle: "IT Infrastructure, Security & Communication Solutions",
+    image: "/comtech-systems.png",
+    tech: ["Next.js", "Tailwind", "React", "HTML/CSS/JS"],
+    actions: [
+      { label: "View Site", href: "https://comtech-systems.in", variant: "primary" },
+    ],
+  },
 ];
 
 const contactLinks = [
@@ -309,7 +318,7 @@ export default function Home() {
                 <p className="eyebrow">Portfolio Highlights</p>
                 <h2 className="headline headline-lg">My Projects</h2>
               </div>
-              <div className="mono-label muted-text">01 — 05</div>
+              <div className="mono-label muted-text">01 — 07</div>
             </div>
 
             <div className="project-grid">
