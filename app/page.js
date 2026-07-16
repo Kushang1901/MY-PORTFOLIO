@@ -169,7 +169,7 @@ export default function Home() {
                 <a className="button button-secondary" href="#contact">
                   Get in Touch
                 </a>
-                <a className="button button-secondary" href="/UPDATED%20CV.pdf" target="_blank" rel="noreferrer">
+                <a className="button button-secondary" href="/UPDATED%20CV.pdf" target="_blank" rel="noopener noreferrer">
                   Resume
                 </a>
               </div>
@@ -180,7 +180,7 @@ export default function Home() {
               <div className="hero-frame" style={{ aspectRatio: "4 / 5" }}>
                 <Image
                   src="/profile-image.jpg"
-                  alt="Kushang Acharya portrait"
+                  alt="Kushang Acharya - Frontend Engineer and Web Architect Portrait"
                   fill
                   priority
                   sizes="(max-width: 1080px) 100vw, 420px"
@@ -257,8 +257,9 @@ export default function Home() {
                   key={achievement.title}
                   href={achievement.link}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="achievement-card"
+                  aria-label={`View certificate or document for ${achievement.title} - opens in a new tab`}
                 >
                   <span className="material-symbols-outlined achievement-icon">{achievement.icon}</span>
                   <div className="achievement-content">
@@ -302,7 +303,7 @@ export default function Home() {
                   <li>Improved layout consistency, mobile behavior, and overall presentation quality.</li>
                 </ul>
                 <div style={{ marginTop: "1.5rem" }}>
-                  <a className="button button-secondary" href="https://drive.google.com/file/d/1XD8T9zm6AjRMDNrvXmua7YbOXdLY2IIL/view?usp=drive_link" target="_blank" rel="noreferrer">
+                  <a className="button button-secondary" href="https://drive.google.com/file/d/1XD8T9zm6AjRMDNrvXmua7YbOXdLY2IIL/view?usp=drive_link" target="_blank" rel="noopener noreferrer" aria-label="View DreamsDesign Internship Certificate - opens in a new tab">
                     View Internship Certificate
                   </a>
                 </div>
@@ -330,12 +331,12 @@ export default function Home() {
                       style={{ aspectRatio: "16 / 9" }}
                       href={project.actions[0]?.href}
                       target="_blank"
-                      rel="noreferrer"
-                      aria-label={`Open ${project.title}`}
+                      rel="noopener noreferrer"
+                      aria-label={`Open project ${project.title} - ${project.subtitle} in a new tab`}
                     >
                       <Image
                         src={project.image}
-                        alt={project.title}
+                        alt={`${project.title} - ${project.subtitle}`}
                         fill
                         sizes="(max-width: 1080px) 100vw, 50vw"
                         loading={index === 0 ? "eager" : "lazy"}
@@ -349,8 +350,8 @@ export default function Home() {
                       style={{ aspectRatio: "16 / 9" }}
                       href={project.actions[0]?.href}
                       target="_blank"
-                      rel="noreferrer"
-                      aria-label={`Open ${project.title}`}
+                      rel="noopener noreferrer"
+                      aria-label={`Open design project ${project.title} - ${project.subtitle} in a new tab`}
                     >
                       <div className="project-placeholder">
                         <p className="project-placeholder-eyebrow">Figma Design</p>
@@ -383,7 +384,8 @@ export default function Home() {
                         className={`project-action project-action-${action.variant}`}
                         href={action.href}
                         target="_blank"
-                        rel="noreferrer"
+                        rel="noopener noreferrer"
+                        aria-label={`${action.label} for ${project.title} - opens in a new tab`}
                       >
                         {action.label}
                       </a>

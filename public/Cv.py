@@ -48,6 +48,25 @@ def draw_envelope_icon(c, x, y, size=7.5):
     c.restoreState()
 
 
+def draw_phone_icon(c, x, y, size=8):
+    c.saveState()
+    c.setStrokeColor(colors.HexColor("#A5B4FC"))
+    c.setLineWidth(0.8)
+    c.setFillColor(colors.transparent)
+    # Classic handset silhouette drawn as a smooth curved path
+    p = c.beginPath()
+    p.moveTo(x + size*0.15, y + size*0.85)
+    p.curveTo(x - size*0.05, y + size*0.65, x + size*0.05, y + size*0.35, x + size*0.30, y + size*0.15)
+    p.curveTo(x + size*0.40, y + size*0.07, x + size*0.50, y + size*0.10, x + size*0.55, y + size*0.22)
+    p.curveTo(x + size*0.60, y + size*0.33, x + size*0.55, y + size*0.40, x + size*0.45, y + size*0.45)
+    p.curveTo(x + size*0.55, y + size*0.60, x + size*0.65, y + size*0.70, x + size*0.80, y + size*0.65)
+    p.curveTo(x + size*0.90, y + size*0.70, x + size*0.93, y + size*0.80, x + size*0.85, y + size*0.90)
+    p.curveTo(x + size*0.75, y + size*1.00, x + size*0.40, y + size*1.02, x + size*0.15, y + size*0.85)
+    p.close()
+    c.drawPath(p, fill=0, stroke=1)
+    c.restoreState()
+
+
 def draw_location_icon(c, x, y, size=8):
     c.saveState()
     c.setStrokeColor(colors.HexColor("#A5B4FC"))
@@ -261,6 +280,8 @@ def draw_header_badge_vector(c, x, y, icon_type, label, url=None):
     iy = y - 1
     if icon_type == "email":
         draw_envelope_icon(c, ix, iy, size=7.5)
+    elif icon_type == "phone":
+        draw_phone_icon(c, ix, iy - 0.5, size=8)
     elif icon_type == "location":
         draw_location_icon(c, ix, iy - 1, size=8)
     elif icon_type == "github":
@@ -449,6 +470,7 @@ def generate_cv(output_path="kushang_acharya_cv.pdf"):
     # Clickable vector badge header items
     contacts = [
         ("email", "kushangacharya8830@gmail.com", "mailto:kushangacharya8830@gmail.com"),
+        ("phone", "+91 97242 36385", "tel:+919724236385"),
         ("location", "Vadodara, Gujarat", "https://maps.google.com/?q=Vadodara,+Gujarat,+India"),
         ("github", "GitHub", "https://github.com/Kushang1901"),
         ("linkedin", "LinkedIn", "https://linkedin.com/in/kushang-acharya"),
@@ -858,4 +880,6 @@ def generate_cv(output_path="kushang_acharya_cv.pdf"):
 
 
 if __name__ == "__main__":
-    generate_cv(r"C:\Users\Kushang\Downloads\kushang_acharya_cv_improved.pdf")
+    import os
+    output_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "UPDATED CV.pdf")
+    generate_cv(output_path)
