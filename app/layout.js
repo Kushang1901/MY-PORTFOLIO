@@ -99,6 +99,8 @@ export default function RootLayout({ children }) {
         "name": "Kushang Acharya",
         "jobTitle": "Frontend Engineer & Web Architect",
         "url": "https://kushangacharya.vercel.app",
+        "telephone": "+919724236385",
+        "email": "kushangacharya8830@gmail.com",
         "sameAs": [
           "https://github.com/Kushang1901",
           "https://linkedin.com/in/kushang-acharya"

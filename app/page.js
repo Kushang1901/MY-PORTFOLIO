@@ -123,7 +123,8 @@ const projects = [
 ];
 
 const contactLinks = [
-  { label: "kushangacharya8830@mail.com", href: "mailto:kushangacharya8830@gmail.com", icon: "mail" },
+  { label: "kushangacharya8830@gmail.com", href: "mailto:kushangacharya8830@gmail.com", icon: "mail" },
+  { label: "+91 97242 36385", href: "tel:+919724236385", icon: "call" },
   { label: "Download My Résumé", href: "/UPDATED%20CV.pdf", icon: "description" },
 ];
 
@@ -460,10 +461,10 @@ export default function Home() {
           </div>
 
           <div className="footer-links">
-            <a className="footer-link" href="https://github.com/Kushang1901" target="_blank" rel="noreferrer">
+            <a className="footer-link" href="https://github.com/Kushang1901" target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
-            <a className="footer-link" href="https://www.linkedin.com/in/kushang-acharya-938a712a6/" target="_blank" rel="noreferrer">
+            <a className="footer-link" href="https://www.linkedin.com/in/kushang-acharya-938a712a6/" target="_blank" rel="noopener noreferrer">
               LinkedIn
             </a>
             <a className="footer-link" href="mailto:kushangacharya8830@gmail.com">
