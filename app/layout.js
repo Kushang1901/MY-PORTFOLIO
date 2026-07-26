@@ -1,5 +1,4 @@
 import { Inter, Playfair_Display, JetBrains_Mono } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({
@@ -149,11 +148,10 @@ export default function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <Script
+        <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9564494037866343"
           crossOrigin="anonymous"
-          strategy="afterInteractive"
         />
       </head>
       <body>{children}</body>
