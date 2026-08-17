@@ -56,7 +56,7 @@ const projects = [
     title: "Sarkaar Toolkit",
     subtitle: "A secure, offline desktop utility workspace designed for Indian tax consultants, accountants, and citizens. Easily prepare compliance documents locally on your PC.",
     image: "/Sarkaar Toolkit.png",
-    tech: ["C#", ".NET", "WPF", "Windows Store"],
+    tech: ["React", "Electron", "Vite", "Windows Store"],
     actions: [
       { label: "View", href: "https://apps.microsoft.com/detail/9PLBXKSFMM04?hl=en-us&gl=US&ocid=pdpshare", variant: "primary" },
     ],
@@ -65,7 +65,7 @@ const projects = [
     title: "AuraDoc",
     subtitle: "A modern, ultra-fast universal document reader and presentation suite with a sleek glassmorphic interface, supporting multiple file formats with 100% offline privacy.",
     image: "/AuraDoc.png",
-    tech: ["C#", ".NET", "WPF", "Windows Store"],
+    tech: ["React", "Electron", "Vite", "Windows Store"],
     actions: [
       { label: "View", href: "https://apps.microsoft.com/detail/9N5Q46XTZ7DG?hl=en-us&gl=US&ocid=pdpshare", variant: "primary" },
     ],
