@@ -53,6 +53,24 @@ const achievements = [
 const projects = [
 
   {
+    title: "Sarkaar Toolkit",
+    subtitle: "A secure, offline desktop utility workspace designed for Indian tax consultants, accountants, and citizens. Easily prepare compliance documents locally on your PC.",
+    image: "/Sarkaar Toolkit.png",
+    tech: ["C#", ".NET", "WPF", "Windows Store"],
+    actions: [
+      { label: "View", href: "https://apps.microsoft.com/detail/9PLBXKSFMM04?hl=en-us&gl=US&ocid=pdpshare", variant: "primary" },
+    ],
+  },
+  {
+    title: "AuraDoc",
+    subtitle: "A modern, ultra-fast universal document reader and presentation suite with a sleek glassmorphic interface, supporting multiple file formats with 100% offline privacy.",
+    image: "/AuraDoc.png",
+    tech: ["C#", ".NET", "WPF", "Windows Store"],
+    actions: [
+      { label: "View", href: "https://apps.microsoft.com/detail/9N5Q46XTZ7DG?hl=en-us&gl=US&ocid=pdpshare", variant: "primary" },
+    ],
+  },
+  {
     title: "Hotel Devang",
     subtitle: "Real time Booking Platform & Inventory system",
     image: "/hotel_devang.png",
@@ -196,7 +214,7 @@ export default function Home() {
         <section className="surface-strip">
           <div className="container hero-stats">
             <div className="stat-card">
-              <span className="stat-number">7+</span>
+              <span className="stat-number">9+</span>
               <span className="stat-label">Projects Built</span>
             </div>
             <div className="stat-card">
@@ -320,7 +338,7 @@ export default function Home() {
                 <p className="eyebrow">Portfolio Highlights</p>
                 <h2 className="headline headline-lg">My Projects</h2>
               </div>
-              <div className="mono-label muted-text">01 — 07</div>
+              <div className="mono-label muted-text">01 — 09</div>
             </div>
 
             <div className="project-grid">
