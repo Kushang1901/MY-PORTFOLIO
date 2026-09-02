@@ -89,14 +89,27 @@ const projects = [
     ],
   },
   {
+    title: "Shekhar Dental & Orthodontic Centre",
+    subtitle: "Advanced Dental Healthcare & Clinical Practice Portal",
+    image: "/shekhar dental.png",
+    tech: ["Next.js", "Tailwind", "React", "HTML/CSS/JS"],
+    actions: [
+      { label: "View Site", href: "https://shekhardental.in/", variant: "primary" },
+    ],
+  },
+  {
     title: "Java Image Processing System",
     subtitle: "Advanced Visual Algorithm Suite",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuA5m4HC0LtEyJqUDXbGcxZVqNuVrgdDz0FJVBSH2ONiLJjqexk5TzTFF3kfG_x-1WHExOi_Z-VifqNcx0m_yYVkIxG26cN5a7_a6LnESVFY3aKkNUS0xbbi27lb_mUZU5O6YKW9x42qilwfTdDpMQTQ_w_pnkV2Zl3fSLOGdrZORLFMWNZrEairBNw-OWx4ZEv1eC7Oe9pOoJ0NQAtUz7fJgyzG7xupML_O-QaZJS9VfMHZCpLo0Mp-b4oL8KVFFG5eznkuRz-9Fro",
-    tech: ["Java"],
+    tech: ["Java", "Windows Store"],
     actions: [
-      { label: "View Repo", href: "https://github.com/Kushang1901/java-image-processing", variant: "primary" },
-      { label: "Download Project", href: "https://github.com/Kushang1901/java-image-processing/archive/refs/heads/main.zip", variant: "secondary" },
+      {
+        label: "Get it from Microsoft Store",
+        href: "https://apps.microsoft.com/store/detail/9PF01CLJQVMH?cid=DevShareMCLPCS",
+        variant: "primary",
+        icon: "microsoft",
+      },
     ],
   },
   {
@@ -338,7 +351,7 @@ export default function Home() {
                 <p className="eyebrow">Portfolio Highlights</p>
                 <h2 className="headline headline-lg">My Projects</h2>
               </div>
-              <div className="mono-label muted-text">01 — 09</div>
+              <div className="mono-label muted-text">01 — {String(projects.length).padStart(2, "0")}</div>
             </div>
 
             <div className="project-grid">
@@ -406,7 +419,24 @@ export default function Home() {
                         rel="noopener noreferrer"
                         aria-label={`${action.label} for ${project.title} - opens in a new tab`}
                       >
-                        {action.label}
+                        {action.icon === "microsoft" && (
+                          <svg
+                            className="project-action-icon"
+                            width="14"
+                            height="14"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            style={{ marginRight: "0.55rem", flexShrink: 0 }}
+                            aria-hidden="true"
+                          >
+                            <rect x="0" y="0" width="9.2" height="9.2" fill="#F25022" />
+                            <rect x="10.8" y="0" width="9.2" height="9.2" fill="#7FBA00" />
+                            <rect x="0" y="10.8" width="9.2" height="9.2" fill="#00A4EF" />
+                            <rect x="10.8" y="10.8" width="9.2" height="9.2" fill="#FFB900" />
+                          </svg>
+                        )}
+                        <span>{action.label}</span>
                       </a>
                     ))}
                   </div>

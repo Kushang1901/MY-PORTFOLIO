@@ -138,7 +138,11 @@ export default function RootLayout({ children }) {
   };
 
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable} ${jetBrainsMono.variable}`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${playfair.variable} ${jetBrainsMono.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
@@ -154,7 +158,7 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
         />
       </head>
-      <body>{children}</body>
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }
