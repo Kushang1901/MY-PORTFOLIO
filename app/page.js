@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
+import WelcomeLoader from "@/components/WelcomeLoader";
 
 const skills = [
   { icon: "code", label: "HTML5 & CSS3" },
@@ -51,61 +52,89 @@ const achievements = [
 ];
 
 const projects = [
-
   {
     title: "Sarkaar Toolkit",
-    subtitle: "A secure, offline desktop utility workspace designed for Indian tax consultants, accountants, and citizens. Easily prepare compliance documents locally on your PC.",
-    image: "/Sarkaar Toolkit.png",
+    subtitle: "A secure, offline desktop utility workspace designed for Indian tax consultants, accountants, and citizens to prepare compliance documents locally on PC.",
+    category: "Desktop Application",
+    filterCategory: "desktop",
+    status: "Microsoft Store",
+    statusType: "store",
+    icon: "desktop_windows",
+    highlights: ["Offline Compliance Engine", "Zero-Cloud Data Privacy", "Windows Store Certified"],
     tech: ["React", "Electron", "Vite", "Windows Store"],
     actions: [
-      { label: "View", href: "https://apps.microsoft.com/detail/9PLBXKSFMM04?hl=en-us&gl=US&ocid=pdpshare", variant: "primary" },
+      { label: "View on Store", href: "https://apps.microsoft.com/detail/9PLBXKSFMM04?hl=en-us&gl=US&ocid=pdpshare", variant: "primary", icon: "microsoft" },
     ],
   },
   {
     title: "AuraDoc",
     subtitle: "A modern, ultra-fast universal document reader and presentation suite with a sleek glassmorphic interface, supporting multiple file formats with 100% offline privacy.",
-    image: "/AuraDoc.png",
+    category: "Desktop Suite",
+    filterCategory: "desktop",
+    status: "Microsoft Store",
+    statusType: "store",
+    icon: "auto_stories",
+    highlights: ["Glassmorphic Presentation Suite", "Multi-format Document Engine", "100% Offline Privacy"],
     tech: ["React", "Electron", "Vite", "Windows Store"],
     actions: [
-      { label: "View", href: "https://apps.microsoft.com/detail/9N5Q46XTZ7DG?hl=en-us&gl=US&ocid=pdpshare", variant: "primary" },
+      { label: "View on Store", href: "https://apps.microsoft.com/detail/9N5Q46XTZ7DG?hl=en-us&gl=US&ocid=pdpshare", variant: "primary", icon: "microsoft" },
     ],
   },
   {
     title: "Hotel Devang",
-    subtitle: "Real time Booking Platform & Inventory system",
-    image: "/hotel_devang.png",
-    tech: ["Next.js", "Tailwind", "Framer", "HTML/CSS/JS"],
+    subtitle: "Full-stack real-time hotel booking platform and hospitality portal with live room inventory and instant WhatsApp API reservation.",
+    category: "Web Application",
+    filterCategory: "web",
+    status: "Live Production",
+    statusType: "live",
+    icon: "hotel",
+    highlights: ["Real-time Room Inventory", "WhatsApp API Booking Flow", "Mobile-First High Conversion UX"],
+    tech: ["Next.js", "React", "Tailwind CSS", "WhatsApp API"],
     actions: [
-      { label: "View Site", href: "https://hoteldevang.com/", variant: "primary" },
+      { label: "View Live Site", href: "https://hoteldevang.com/", variant: "primary", icon: "arrow_outward" },
     ],
   },
   {
-    title: "CVGRID",
-    subtitle: "Grid-based Content Architect",
-    image: "/CVGrid.png",
-    tech: ["Vanilla JS", "CSS Grid", "A11y"],
+    title: "CVGrid – AI Resume Builder",
+    subtitle: "AI-powered ATS resume builder and career tool suite featuring 18+ templates, AI content optimization, live preview, and watermark-free PDF export.",
+    category: "AI Web Application",
+    filterCategory: "web",
+    status: "Live Production",
+    statusType: "live",
+    icon: "auto_awesome",
+    highlights: ["AI Content Generation Engine", "18+ ATS-Friendly Templates", "Instant Vector PDF Exporter"],
+    tech: ["Next.js", "React", "AI Integration", "Tailwind CSS"],
     actions: [
-      { label: "View Site", href: "https://cvgrid.in", variant: "primary" },
+      { label: "View Live Site", href: "https://cvgrid.in", variant: "primary", icon: "arrow_outward" },
     ],
   },
   {
     title: "Shekhar Dental & Orthodontic Centre",
-    subtitle: "Advanced Dental Healthcare & Clinical Practice Portal",
-    image: "/shekhar dental.png",
-    tech: ["Next.js", "Tailwind", "React", "HTML/CSS/JS"],
+    subtitle: "Advanced dental healthcare and clinical practice portal designed for patient intake, appointment scheduling, and service discovery.",
+    category: "Healthcare Web Portal",
+    filterCategory: "web",
+    status: "Live Client",
+    statusType: "live",
+    icon: "medical_services",
+    highlights: ["Patient Intake Flow", "Practice Management Portal", "High-performance Mobile Design"],
+    tech: ["Next.js", "Tailwind CSS", "React", "JavaScript"],
     actions: [
-      { label: "View Site", href: "https://shekhardental.in/", variant: "primary" },
+      { label: "View Live Site", href: "https://shekhardental.in/", variant: "primary", icon: "arrow_outward" },
     ],
   },
   {
-    title: "Java Image Processing System",
-    subtitle: "Advanced Visual Algorithm Suite",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuA5m4HC0LtEyJqUDXbGcxZVqNuVrgdDz0FJVBSH2ONiLJjqexk5TzTFF3kfG_x-1WHExOi_Z-VifqNcx0m_yYVkIxG26cN5a7_a6LnESVFY3aKkNUS0xbbi27lb_mUZU5O6YKW9x42qilwfTdDpMQTQ_w_pnkV2Zl3fSLOGdrZORLFMWNZrEairBNw-OWx4ZEv1eC7Oe9pOoJ0NQAtUz7fJgyzG7xupML_O-QaZJS9VfMHZCpLo0Mp-b4oL8KVFFG5eznkuRz-9Fro",
-    tech: ["Java", "Windows Store"],
+    title: "PixelForge: Photo & Batch Studio",
+    subtitle: "Advanced visual algorithm suite featuring custom 2D convolution kernels, color matrix transforms, and digital filter processing.",
+    category: "Desktop / Algorithm",
+    filterCategory: "desktop",
+    status: "Microsoft Store",
+    statusType: "store",
+    icon: "filter_vintage",
+    highlights: ["Custom Convolution Kernels", "Color Space Transformation", "MS Store Certified Desktop App"],
+    tech: ["Java", "Swing/AWT", "Windows Store"],
     actions: [
       {
-        label: "Get it from Microsoft Store",
+        label: "Get from Microsoft Store",
         href: "https://apps.microsoft.com/store/detail/9PF01CLJQVMH?cid=DevShareMCLPCS",
         variant: "primary",
         icon: "microsoft",
@@ -113,42 +142,102 @@ const projects = [
     ],
   },
   {
-    title: "Python Based Image Processing System",
-    subtitle: "OpenCV-powered Visual Intelligence Suite",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuA5m4HC0LtEyJqUDXbGcxZVqNuVrgdDz0FJVBSH2ONiLJjqexk5TzTFF3kfG_x-1WHExOi_Z-VifqNcx0m_yYVkIxG26cN5a7_a6LnESVFY3aKkNUS0xbbi27lb_mUZU5O6YKW9x42qilwfTdDpMQTQ_w_pnkV2Zl3fSLOGdrZORLFMWNZrEairBNw-OWx4ZEv1eC7Oe9pOoJ0NQAtUz7fJgyzG7xupML_O-QaZJS9VfMHZCpLo0Mp-b4oL8KVFFG5eznkuRz-9Fro",
-    tech: ["Python", "OpenCV", "PIL"],
+    title: "Python Image Processing System",
+    subtitle: "OpenCV-powered visual intelligence suite for computer vision tasks, edge detection, automated filtering pipelines, and spatial transforms.",
+    category: "Computer Vision & AI",
+    filterCategory: "algorithms",
+    status: "Open Source",
+    statusType: "opensource",
+    icon: "biotech",
+    highlights: ["OpenCV Vision Pipeline", "Edge & Contour Detection", "Automated Batch Transforms"],
+    tech: ["Python", "OpenCV", "PIL", "NumPy"],
     actions: [
-      { label: "View Repo", href: "https://github.com/Kushang1901/Python-Image-Processing", variant: "primary" },
-      { label: "Download Project", href: "https://github.com/Kushang1901/Python-Image-Processing/archive/refs/heads/main.zip", variant: "secondary" },
+      { label: "View GitHub Repo", href: "https://github.com/Kushang1901/Python-Image-Processing", variant: "primary", icon: "code" },
+      { label: "Download Project (.zip)", href: "https://github.com/Kushang1901/Python-Image-Processing/archive/refs/heads/main.zip", variant: "secondary", icon: "download" },
     ],
   },
-
   {
     title: "SoundWave E-Commerce",
-    subtitle: "Premium Audio Retail Experience",
-    image: "/Soundwave.png",
-    tech: ["React", "Redux", "Stripe"],
+    subtitle: "Futuristic audio retail experience featuring custom visualizers, persistent shopping cart, Google authentication, and high-fidelity product showcase.",
+    category: "E-Commerce Web App",
+    filterCategory: "web",
+    status: "Live Prototype",
+    statusType: "live",
+    icon: "headphones",
+    highlights: ["Next.js App Router Architecture", "Google OAuth Authentication", "Dynamic Audio Visualizer UI"],
+    tech: ["Next.js", "React", "Tailwind CSS", "OAuth"],
     actions: [
-      { label: "View Site", href: "https://my-soundwave.vercel.app/auth", variant: "primary" },
+      { label: "View Live Site", href: "https://my-soundwave.vercel.app/auth", variant: "primary", icon: "arrow_outward" },
     ],
   },
   {
     title: "AWARENEST - Harmony",
-    subtitle: "Mobile App UI / Figma Design Concept",
-    image: "/awarenest.png",
-    tech: ["Figma", "UX", "Mobile App"],
+    subtitle: "Mindful mobile application design concept centered on emotional wellness, meditation pacing, and calming glassmorphic aesthetics.",
+    category: "UI/UX Mobile Design",
+    filterCategory: "design",
+    status: "Figma Prototype",
+    statusType: "design",
+    icon: "spa",
+    highlights: ["Comprehensive Design System", "Interactive Mobile Flow", "Glassmorphic Wellness UI"],
+    tech: ["Figma", "UX Research", "Mobile App UI", "Interaction Design"],
     actions: [
-      { label: "View Design", href: "https://www.figma.com/design/mRJieppUerKaA8hsBhvZy9/AwareNest--UED-Project?node-id=0-1&p=f&t=FV4rhhuJyJp3cylN-0", variant: "primary" },
+      { label: "Explore in Figma", href: "https://www.figma.com/design/mRJieppUerKaA8hsBhvZy9/AwareNest--UED-Project?node-id=0-1&p=f&t=FV4rhhuJyJp3cylN-0", variant: "primary", icon: "palette" },
     ],
   },
   {
     title: "Comtech Systems",
-    subtitle: "IT Infrastructure, Security & Communication Solutions",
-    image: "/comtech-systems.png",
-    tech: ["Next.js", "Tailwind", "React", "HTML/CSS/JS"],
+    subtitle: "IT Infrastructure, Security & Communication Solutions corporate portal communicating high-tier enterprise IT engineering services.",
+    category: "Enterprise Web Portal",
+    filterCategory: "web",
+    status: "Live Client",
+    statusType: "live",
+    icon: "router",
+    highlights: ["Enterprise IT Architecture", "Lead Generation Pipeline", "Modern Responsive Layout"],
+    tech: ["Next.js", "Tailwind CSS", "React", "JavaScript"],
     actions: [
-      { label: "View Site", href: "https://comtech-systems.in", variant: "primary" },
+      { label: "View Live Site", href: "https://comtech-systems.in", variant: "primary", icon: "arrow_outward" },
+    ],
+  },
+  {
+    title: "Archery Legends: TrueFlight 3D",
+    subtitle: "Precision 3D archery sports simulation featuring realistic aerodynamic arrow ballistics, dynamic wind physics, and cinematic target cameras.",
+    category: "3D Sports Simulation",
+    filterCategory: "games",
+    status: "Microsoft Store",
+    statusType: "store",
+    icon: "sports_esports",
+    highlights: ["Aerodynamic Ballistics & Wind Physics", "Dynamic Cinematic Camera Suite", "Windows Store Certified"],
+    tech: ["Unity / C#", "3D Physics Engine", "Cinemachine", "Windows Store"],
+    actions: [
+      { label: "View on Store", href: "https://apps.microsoft.com/detail/9PLSNG82FZ7L?hl=en-us&gl=US&ocid=pdpshare", variant: "primary", icon: "microsoft" },
+    ],
+  },
+  {
+    title: "CyberStrike: Robot Outbreak - 3D FPS",
+    subtitle: "Fast-paced sci-fi first-person shooter featuring reactive enemy robot AI behaviors, spatial 3D audio, and immersive cybernetic combat environments.",
+    category: "3D Sci-Fi FPS Game",
+    filterCategory: "games",
+    status: "Microsoft Store",
+    statusType: "store",
+    icon: "sports_esports",
+    highlights: ["Autonomous Enemy AI NavMesh", "Spatial 3D Audio & Particle FX", "Windows Store Certified"],
+    tech: ["3D Game Engine", "C#", "Enemy AI / NavMesh", "Windows Store"],
+    actions: [
+      { label: "View on Store", href: "https://apps.microsoft.com/detail/9PLDBSWW70DZ?hl=en-us&gl=US&ocid=pdpshare", variant: "primary", icon: "microsoft" },
+    ],
+  },
+  {
+    title: "VEXO - Universal Media Player",
+    subtitle: "High-performance desktop multimedia player supporting comprehensive audio/video codecs with hardware acceleration, playlist queuing, and smooth playback controls.",
+    category: "Desktop Media Engine",
+    filterCategory: "desktop",
+    status: "Microsoft Store",
+    statusType: "store",
+    icon: "play_circle",
+    highlights: ["Hardware-Accelerated Decoding", "Universal Multi-Codec Playback", "Windows Store Certified"],
+    tech: ["Electron / React", "Media Decoders", "Hardware Acceleration", "Windows Store"],
+    actions: [
+      { label: "View on Store", href: "https://apps.microsoft.com/detail/9PNM33BX82DN?hl=en-us&gl=US&ocid=pdpshare", variant: "primary", icon: "microsoft" },
     ],
   },
 ];
@@ -161,6 +250,20 @@ const contactLinks = [
 
 export default function Home() {
   const heroFrameRef = useRef(null);
+  const [activeCategory, setActiveCategory] = useState("all");
+
+  const filterTabs = [
+    { key: "all", label: "All Projects", count: projects.length },
+    { key: "web", label: "Web Applications", count: projects.filter((p) => p.filterCategory === "web").length },
+    { key: "desktop", label: "Desktop & Store Apps", count: projects.filter((p) => p.filterCategory === "desktop").length },
+    { key: "games", label: "3D Games & Sim", count: projects.filter((p) => p.filterCategory === "games").length },
+    { key: "algorithms", label: "Vision & Algorithms", count: projects.filter((p) => p.filterCategory === "algorithms").length },
+    { key: "design", label: "UI/UX Design", count: projects.filter((p) => p.filterCategory === "design").length },
+  ];
+
+  const filteredProjects = activeCategory === "all"
+    ? projects
+    : projects.filter((p) => p.filterCategory === activeCategory);
 
   useEffect(() => {
     const handleMove = (event) => {
@@ -180,6 +283,7 @@ export default function Home() {
 
   return (
     <div className="page-shell">
+      <WelcomeLoader />
       <Navbar />
 
       <main>
@@ -218,7 +322,7 @@ export default function Home() {
                   sizes="(max-width: 1080px) 100vw, 420px"
                   style={{ objectFit: "cover" }}
                 />
-                <span className="hero-flag">Based in Gujarat</span>
+                <span className="hero-flag">Dwarka,Gujarat</span>
               </div>
             </div>
           </div>
@@ -227,7 +331,7 @@ export default function Home() {
         <section className="surface-strip">
           <div className="container hero-stats">
             <div className="stat-card">
-              <span className="stat-number">9+</span>
+              <span className="stat-number">13+</span>
               <span className="stat-label">Projects Built</span>
             </div>
             <div className="stat-card">
@@ -348,58 +452,74 @@ export default function Home() {
           <div className="container">
             <div className="project-header">
               <div>
-                <p className="eyebrow">Portfolio Highlights</p>
-                <h2 className="headline headline-lg">My Projects</h2>
+                <p className="eyebrow">Architectural Showcase</p>
+                <h2 className="headline headline-lg">Featured Projects</h2>
               </div>
-              <div className="mono-label muted-text">01 — {String(projects.length).padStart(2, "0")}</div>
+              <div className="mono-label muted-text">
+                Showing {filteredProjects.length} of {projects.length} System{projects.length === 1 ? "" : "s"}
+              </div>
+            </div>
+
+            {/* Interactive Category Filter Bar */}
+            <div className="project-filter-bar" role="tablist" aria-label="Filter projects by category">
+              {filterTabs.map((tab) => (
+                <button
+                  key={tab.key}
+                  type="button"
+                  role="tab"
+                  aria-selected={activeCategory === tab.key}
+                  className={`project-filter-btn ${activeCategory === tab.key ? "active" : ""}`}
+                  onClick={() => setActiveCategory(tab.key)}
+                >
+                  <span>{tab.label}</span>
+                  <span className="project-filter-count">{tab.count}</span>
+                </button>
+              ))}
             </div>
 
             <div className="project-grid">
-              {projects.map((project, index) => (
+              {filteredProjects.map((project, index) => (
                 <article key={project.title} className="project-card">
-                  {project.image ? (
-                    <a
-                      className="project-media"
-                      style={{ aspectRatio: "16 / 9" }}
-                      href={project.actions[0]?.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`Open project ${project.title} - ${project.subtitle} in a new tab`}
-                    >
-                      <Image
-                        src={project.image}
-                        alt={`${project.title} - ${project.subtitle}`}
-                        fill
-                        sizes="(max-width: 1080px) 100vw, 50vw"
-                        loading={index === 0 ? "eager" : "lazy"}
-                        style={{ objectFit: "cover" }}
-                      />
-                      <div className="project-overlay"></div>
-                    </a>
-                  ) : (
-                    <a
-                      className="project-media project-media-placeholder"
-                      style={{ aspectRatio: "16 / 9" }}
-                      href={project.actions[0]?.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`Open design project ${project.title} - ${project.subtitle} in a new tab`}
-                    >
-                      <div className="project-placeholder">
-                        <p className="project-placeholder-eyebrow">Figma Design</p>
-                        <h3 className="project-placeholder-title">AWARENEST</h3>
-                        <p className="project-placeholder-subtitle">Harmony mobile app concept</p>
-                      </div>
-                      <div className="project-overlay"></div>
-                    </a>
-                  )}
-
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "start", gap: "1rem" }}>
-                    <div>
-                      <h3 className="project-title">{project.title}</h3>
-                      <p className="project-meta">{project.subtitle}</p>
+                  <div className="project-card-header">
+                    <div className="project-card-meta-left">
+                      <span className="project-card-index">/{String(index + 1).padStart(2, "0")}</span>
+                      <span className="project-category-pill">
+                        <span className="material-symbols-outlined project-cat-icon">{project.icon}</span>
+                        <span>{project.category}</span>
+                      </span>
+                    </div>
+                    <div className={`project-status-pill status-${project.statusType}`}>
+                      <span className="project-status-dot"></span>
+                      <span>{project.status}</span>
                     </div>
                   </div>
+
+                  <div className="project-card-main">
+                    <a
+                      href={project.actions[0]?.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-title-link"
+                      aria-label={`Open ${project.title} project`}
+                    >
+                      <h3 className="project-title">
+                        <span>{project.title}</span>
+                        <span className="material-symbols-outlined project-title-arrow">arrow_outward</span>
+                      </h3>
+                    </a>
+                    <p className="project-meta">{project.subtitle}</p>
+                  </div>
+
+                  {project.highlights && (
+                    <div className="project-highlights">
+                      {project.highlights.map((highlight, hIdx) => (
+                        <div key={hIdx} className="project-highlight-item">
+                          <span className="project-highlight-bullet">✦</span>
+                          <span>{highlight}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
 
                   <div className="project-tags">
                     {project.tech.map((tag) => (
@@ -435,6 +555,14 @@ export default function Home() {
                             <rect x="0" y="10.8" width="9.2" height="9.2" fill="#00A4EF" />
                             <rect x="10.8" y="10.8" width="9.2" height="9.2" fill="#FFB900" />
                           </svg>
+                        )}
+                        {action.icon && action.icon !== "microsoft" && (
+                          <span
+                            className="material-symbols-outlined"
+                            style={{ fontSize: "1.05rem", marginRight: "0.45rem", verticalAlign: "middle" }}
+                          >
+                            {action.icon}
+                          </span>
                         )}
                         <span>{action.label}</span>
                       </a>
