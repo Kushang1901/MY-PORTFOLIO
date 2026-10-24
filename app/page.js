@@ -81,6 +81,34 @@ const projects = [
     ],
   },
   {
+    title: "C S Kakkad & Associates",
+    subtitle: "Premier Chartered Accountancy corporate portal featuring statutory auditing, corporate taxation, GST advisory, CMA loan syndication, and interactive tax calculators.",
+    category: "Finance & Accounting Portal",
+    filterCategory: "web",
+    status: "Live Client",
+    statusType: "live",
+    icon: "account_balance",
+    highlights: ["Statutory Audit & Tax Compliance", "Interactive Tax & EMI Calculators", "Multi-Language Localization Engine"],
+    tech: ["Next.js", "React", "Tailwind CSS", "Financial Calculators", "SEO"],
+    actions: [
+      { label: "View Live Site", href: "https://cachintankakkad.in/", variant: "primary", icon: "arrow_outward" },
+    ],
+  },
+  {
+    title: "Dwarkesh Tour & Travels",
+    subtitle: "Official pilgrimage travel portal and tour booking service for 8 sacred places Dwarka Darshan and Somnath coastal tours with instant WhatsApp reservations.",
+    category: "Travel & Pilgrimage Portal",
+    filterCategory: "web",
+    status: "Live Client",
+    statusType: "live",
+    icon: "travel_explore",
+    highlights: ["8 Sacred Places Pilgrimage Routing", "Instant WhatsApp Booking Desk", "Multilingual Pilgrim Experience"],
+    tech: ["Next.js", "React", "Tailwind CSS", "WhatsApp API", "SEO"],
+    actions: [
+      { label: "View Live Site", href: "https://dwarkadarshantour.com/", variant: "primary", icon: "arrow_outward" },
+    ],
+  },
+  {
     title: "Hotel Devang",
     subtitle: "Full-stack real-time hotel booking platform and hospitality portal with live room inventory and instant WhatsApp API reservation.",
     category: "Web Application",
@@ -331,7 +359,7 @@ export default function Home() {
         <section className="surface-strip">
           <div className="container hero-stats">
             <div className="stat-card">
-              <span className="stat-number">13+</span>
+              <span className="stat-number">15+</span>
               <span className="stat-label">Projects Built</span>
             </div>
             <div className="stat-card">
