@@ -333,7 +333,7 @@ export default function Home() {
                 <a className="button button-secondary" href="#contact">
                   Get in Touch
                 </a>
-                <a className="button button-secondary" href="/UPDATED%20CV.pdf" target="_blank" rel="noopener noreferrer">
+                <a className="button button-secondary" href="/resume.pdf" target="_blank" rel="noopener noreferrer">
                   Resume
                 </a>
               </div>
