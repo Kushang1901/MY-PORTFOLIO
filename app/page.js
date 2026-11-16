@@ -273,7 +273,7 @@ const projects = [
 const contactLinks = [
   { label: "kushangacharya8830@gmail.com", href: "mailto:kushangacharya8830@gmail.com", icon: "mail" },
   { label: "+91 97242 36385", href: "tel:+919724236385", icon: "call" },
-  { label: "Download My Résumé", href: "/UPDATED%20CV.pdf", icon: "description" },
+  { label: "Download My Résumé", href: "/resume.pdf", icon: "description" },
 ];
 
 export default function Home() {
